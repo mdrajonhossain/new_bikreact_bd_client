@@ -1,0 +1,46 @@
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+.main{
+	color: white;	
+	width: 100%;
+	padding: 20px;
+	background: green;
+}
+
+.mobile_mnu{
+	display: block;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.web_mnu{
+	display: none;
+}
+.mobile{ 
+	grid-area: 5;
+	text-align: center;
+	cursor: pointer;
+}
+
+
+ 
+.fooder_mobile_view{
+	padding-top: 20px;
+	padding-bottom: 20px;	
+	position: fixed;
+	background: green;	
+	color: white;
+	bottom:0px;
+	width: 100%;
+	display: block;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	text-align: center;
+}
+.fooder_web_view{
+	display: none;
+}
+
+ 
