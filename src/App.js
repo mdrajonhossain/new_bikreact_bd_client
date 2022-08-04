@@ -1,5 +1,5 @@
 import Home from './component/Home';
-import About from './component/About';
+import Subcatagory from './component/Subcatagory';
 import { BrowserRouter as Router, Routes, Route, Redirect, Navigate } from "react-router-dom";
 
 
@@ -15,8 +15,9 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />          
+          <Route path="/sub_catagory/:id" element={<Subcatagory />} />
+
         </Routes>
       </Router>
     </>

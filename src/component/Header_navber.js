@@ -2,23 +2,16 @@
 import '../App.css';
 import React, { useState, useRef } from 'react'
 import { Link } from "react-router-dom";
+import OutsideClickHandler from 'react-outside-click-handler';
+import { AiOutlineMenu } from "react-icons/ai";
+
+
 
 
 
 const Header_navber = () => {
-  const clickref = useRef();
+  const [show, setShow] = useState(false);
 
-
-  const openMenu = () => {
-    if (clickref.current.className === 'article') {
-      clickref.current.classList.remove('article');
-      clickref.current.classList.add('show');
-    } else {
-      clickref.current.classList.remove('show');
-      clickref.current.classList.add('article');
-    }
-
-  }
 
 
 
@@ -59,29 +52,41 @@ const Header_navber = () => {
 
       <div className="main">
         <div className="mobile_mnu">
-          <div className="mobile">Home</div>
+          <div className="mobile"><AiOutlineMenu fontSize={25}/></div>
           <div className="mobile">Bikretabd.com</div>
-          <div className="mobile">Login</div>
+          <div className="mobile"><AiOutlineMenu fontSize={25}/></div>
         </div>
 
         <div className="web_mnu">
-          <div className="web" onClick={() => openMenu()} style={{ backgroundColor: '#682222', padding: '18px' }}>Shop By Catagory</div>
-          <div className="article" ref={clickref}>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-            <div className="cat_list">Catagory</div>
-          </div>
+
+          <OutsideClickHandler onOutsideClick={() => setShow(false)}>
+            <div className="web drops" onClick={() => setShow(!show)} style={{ backgroundColor: '#682222', padding: '18px' }}>Shop By Catagory</div>            {show ?
+              <div className="article">
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+                <div className="cat_list">Catagory</div>
+              </div>
+              : ''}
+          </OutsideClickHandler>
+
           <div className="web h_menu"><Link to="/">Home</Link></div>
-          <div className="web h_menu"><Link to="/about">About</Link></div>
-          <div className="web h_menu">Blog</div>
-          <div className="web h_menu">Contact</div>
+          <div className="web h_menu"><Link to="/">About</Link></div>
+          <div className="web h_menu"><Link to="/">Blog</Link></div>
+          <div className="web h_menu"><Link to="/">Contact</Link></div>
         </div>
       </div>
 

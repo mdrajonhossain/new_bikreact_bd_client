@@ -1,7 +1,7 @@
 import Header_navber from './Header_navber';
 
 
-const About = () => {
+const Subcatagory = ({ match }) => {
 
 
 
@@ -9,6 +9,7 @@ const About = () => {
         <>
         <Header_navber />
             <br />
+            
             asdfasdf
         </>
     )
@@ -17,4 +18,4 @@ const About = () => {
 
 
 
-export default About;
+export default Subcatagory;
