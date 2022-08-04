@@ -46,7 +46,8 @@ const Fooder = () => {
                                 <div class="footer-widget">
                                     <div class="footer-logo">
                                         <a href="/">                                            
-                                            <img src={require("./logo.png")} width="200" class="img-fluid" alt="logo" />
+                                            <img src={require("./fooderlogo.png")} 
+                                             class="img-fluid" alt="logo" />
                                             </a>
                                     </div>
                                     <div class="footer-text">

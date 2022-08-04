@@ -2,27 +2,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import React, { useState, useEffect } from 'react';
 import { cat_getdata } from '../api/api';
+import { AiOutlineEye, AiFillHeart , AiFillCaretRight } from "react-icons/ai";
 
 
 
-const data = [
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "1" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "2" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "3" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "4" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "1" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "2" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "4" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "1" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "6" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "1" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "4" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "1" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "1" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "9" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "8" },
-    { product_name: "asdfasdfasdf", price: "sdfasdfasdf", qnt: "1" }
-]
+ 
 
 
 const Catagory_list = () => {
@@ -42,14 +26,15 @@ const Catagory_list = () => {
     return (
         <>
             <div className="container">
-                <div className="catagory_header">Catagory List</div>
+                <div className="catagory_header">Catagory List <AiFillCaretRight fontSize={23}/></div>
                 <div className="row">
                     {cata.map((dx) => {
                         return (
                             <div className="col-md-3">
                                 <Card style={{ marginTop: '15px' }}>
                                     <Card.Img variant="top" src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} />
-                                    <Card.Body>
+                                    <div className="view_count"><AiOutlineEye fontSize={18}/> 25 <AiFillHeart fontSize={16}/> 25 </div>
+                                    <Card.Body style={{color: '#006a50'}}>
                                         <center><Card.Title>{dx.name}</Card.Title></center>
                                     </Card.Body>
                                 </Card>
