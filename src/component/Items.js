@@ -15,6 +15,9 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 
 
 
+
+
+
 const Items = () => {
     const [items_data, setItems_data] = useState([]);
     let { id } = useParams();
@@ -63,16 +66,17 @@ const Items = () => {
                                         <Card style={{ marginTop: '15px' }}>
                                             <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
                                             <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
+                                            <div className="items_details">Details</div>
                                             <Card.Body>
                                                 <center><Card.Title>
                                                     <div className='' style={{ color: '#282222', fontSize: '14px' }}>{dx.item_name}</div>
-                                                    <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}> <span style={{ color: 'rgb(52 126 219)' }}>Tk.{dx.regular_price}</span> <span className='text-dark' style={{ fontSize: '12px' }}>Tk.{dx.regular_price}</span></div>
+                                                    <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}> <span style={{ color: 'rgb(52 126 219)' }}>Tk.{dx.regular_price}</span> <span className='text-dark' style={{ fontSize: '12px', textDecoration: 'line-through' }}>Tk.{dx.regular_price}</span></div>
                                                     <div className='addcard_div py-3'>
                                                         <div className='container-fluid'>
                                                             <div className='row'>
-                                                                <div className='col-md-5 add py-2 border border-secondary' onClick={() => addcard(dx)}><MdOutlineShoppingCart /></div>
+                                                                <div className='col-md-5 add py-2' onClick={() => addcard(dx)}><MdOutlineShoppingCart /></div>
                                                                 <div className='col-md-1'></div>
-                                                                <div className='col-md-5 add py-2 border border-secondary' onClick={() => shopingcard(dx)}><RiShoppingBasketLine /></div>
+                                                                <div className='col-md-5 add py-2' onClick={() => shopingcard(dx)}><RiShoppingBasketLine /></div>
                                                             </div>
                                                         </div>
                                                     </div>
