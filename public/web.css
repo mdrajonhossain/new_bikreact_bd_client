@@ -74,12 +74,12 @@ body {
 }
 .items_details {
   color: white;
-  padding: 20px;
-  background-color:  #5172a1;
+  padding: 17px;
+  background-color: #5172a1cc;
   text-align: center;
   position: absolute;
   width: 100%;
-  top: 45%;
+  top: 49%;
 }
 .items_details:hover {
   color: #ebe9f7;
