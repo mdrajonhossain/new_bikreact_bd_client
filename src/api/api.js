@@ -27,7 +27,6 @@ const sub_cat_data = async (e) => {
             .then((res) => {
                 dx = res;
             });
-
         return dx;
     }
     catch (err) {
@@ -37,8 +36,31 @@ const sub_cat_data = async (e) => {
 
 
 
+const additems_data = async (event) => {
+    console.log(event)
+    try {
+        var itemfile
+        const itemsdta = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: event })
+        };
+        await fetch('http://screete.bikretabd.com/admin/item_client', itemsdta)
+            .then(response => response.json())
+            .then((res) => {
+                itemfile = res;
+            });
+        return itemfile;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
 
-export { cat_getdata, sub_cat_data };
+
+
+
+export { cat_getdata, sub_cat_data, additems_data };
 
 
 

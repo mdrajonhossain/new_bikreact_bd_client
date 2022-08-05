@@ -1,7 +1,9 @@
 
 import '../App.css';
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
+
 import OutsideClickHandler from 'react-outside-click-handler';
 import { AiOutlineMenu } from "react-icons/ai";
 import { cat_getdata } from '../api/api';
@@ -14,20 +16,19 @@ const Header_navber = () => {
   const [show, setShow] = useState(false);
   const [dropcat, setDropcat] = useState([]);
 
+  const navigate = useNavigate();
+
 
   useEffect(() => {
 
     cat_getdata()
-      .then((res) => {
-        console.log(22, res.cat_data);
+      .then((res) => {        
         setDropcat(res.cat_data);
       })
-
-
-
-
   }, [])
 
+ 
+ 
 
 
   return (
@@ -73,8 +74,7 @@ const Header_navber = () => {
         <div className="web_mnu">
 
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
-            <div className="web drops" onClick={() => setShow(!show)} style={{ backgroundColor: '#682222', width:'233px', padding: '18px' }}>Shop By Catagory</div>
-            {show ?
+            <div className="web drops" onClick={() => setShow(!show)} style={{ width:'', padding: '18px' }}> Shop By Catagory </div>            {show ?
               <div className="article">
                 {dropcat.map((dx) => {
                   return (
