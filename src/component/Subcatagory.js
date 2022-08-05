@@ -16,11 +16,16 @@ const Subcatagory = () => {
 
     useEffect(() => {
 
-        sub_cat_data(id)
-            .then((res) => {
-                setSub_data(res.sub_id)
-                console.log(res.sub_id);
-            })
+
+        try {
+            sub_cat_data(id)
+                .then((res) => {
+                    setSub_data(res.sub_id)
+                    console.log(res.sub_id);
+                })
+        } catch (err) {
+            console.log(err);
+        }
     }, []);
 
 
@@ -50,7 +55,7 @@ const Subcatagory = () => {
                 </div>
             </div>
             <br />
-            <Fooder/>
+            <Fooder />
         </>
     )
 }

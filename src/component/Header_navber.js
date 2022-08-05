@@ -73,14 +73,14 @@ const Header_navber = () => {
         <div className="web_mnu">
 
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
-            <div className="web drops" onClick={() => setShow(!show)} style={{ backgroundColor: '#682222', padding: '18px' }}>Shop By Catagory</div>
+            <div className="web drops" onClick={() => setShow(!show)} style={{ backgroundColor: '#682222', width:'233px', padding: '18px' }}>Shop By Catagory</div>
             {show ?
               <div className="article">
                 {dropcat.map((dx) => {
                   return (
                     <>
                     <Link to={`/sub_catagory/${dx.id}`}>
-                      <div className="cat_list">{dx.name}</div>
+                      <div className="cat_list"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} /> {dx.name}</div>
                       </Link>
                     </>
                   )
