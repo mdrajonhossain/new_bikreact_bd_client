@@ -1,9 +1,10 @@
 
 import '../App.css';
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from "react-router-dom";
 import OutsideClickHandler from 'react-outside-click-handler';
 import { AiOutlineMenu } from "react-icons/ai";
+import { cat_getdata } from '../api/api';
 
 
 
@@ -11,9 +12,21 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 const Header_navber = () => {
   const [show, setShow] = useState(false);
+  const [dropcat, setDropcat] = useState([]);
+
+
+  useEffect(() => {
+
+    cat_getdata()
+      .then((res) => {
+        console.log(22, res.cat_data);
+        setDropcat(res.cat_data);
+      })
 
 
 
+
+  }, [])
 
 
 
@@ -52,33 +65,26 @@ const Header_navber = () => {
 
       <div className="main">
         <div className="mobile_mnu">
-          <div className="mobile"><AiOutlineMenu fontSize={25}/></div>
+          <div className="mobile"><AiOutlineMenu fontSize={25} /></div>
           <div className="mobile">Bikretabd.com</div>
-          <div className="mobile"><AiOutlineMenu fontSize={25}/></div>
+          <div className="mobile"><AiOutlineMenu fontSize={25} /></div>
         </div>
 
         <div className="web_mnu">
 
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
-            <div className="web drops" onClick={() => setShow(!show)} style={{ backgroundColor: '#682222', padding: '18px' }}>Shop By Catagory</div>            {show ?
+            <div className="web drops" onClick={() => setShow(!show)} style={{ backgroundColor: '#682222', padding: '18px' }}>Shop By Catagory</div>
+            {show ?
               <div className="article">
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
-                <div className="cat_list">Catagory</div>
+                {dropcat.map((dx) => {
+                  return (
+                    <>
+                    <Link to={`/sub_catagory/${dx.id}`}>
+                      <div className="cat_list">{dx.name}</div>
+                      </Link>
+                    </>
+                  )
+                })}
               </div>
               : ''}
           </OutsideClickHandler>
