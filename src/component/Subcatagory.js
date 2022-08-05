@@ -58,7 +58,7 @@ const Subcatagory = () => {
                                 return (
                                     <div className="col-md-3">
                                         <Card style={{ marginTop: '15px' }}>
-                                            <Link to={`/getitems/${dx.category_id}`}>
+                                            <Link to={`/getitems/${dx.slug}/${dx.category_id}`}>
                                                 <Card.Img variant="top" src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} />
                                                 <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
                                                 <Card.Body style={{ color: '#006a50' }}>

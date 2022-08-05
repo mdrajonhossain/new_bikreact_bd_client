@@ -32,7 +32,7 @@ const Catagory_list = () => {
                         return (
                             <div className="col-md-3">
                                 <Card style={{ marginTop: '15px' }}>
-                                <Link to={`/sub_catagory/${dx.id}`}>
+                                <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
                                     <Card.Img variant="top" src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} />
                                     <div className="view_count"><AiOutlineEye fontSize={18}/> 25 <AiFillHeart fontSize={16}/> 25 </div>
                                     <Card.Body style={{color: '#006a50'}}>

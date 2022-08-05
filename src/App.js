@@ -17,8 +17,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />          
-          <Route path="/sub_catagory/:id" element={<Subcatagory />} />          
-          <Route path="/getitems/:id" element={<Items />} />          
+          <Route path="/sub_catagory/:slug/:id" element={<Subcatagory />} />          
+          <Route path="/getitems/:slug/:id" element={<Items />} />          
         </Routes>
       </Router>
     </>

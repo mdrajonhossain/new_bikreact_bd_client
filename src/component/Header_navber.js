@@ -79,7 +79,7 @@ const Header_navber = () => {
                 {dropcat.map((dx) => {
                   return (
                     <>
-                    <Link to={`/sub_catagory/${dx.id}`}>
+                    <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
                       <div className="cat_list"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} /> {dx.name}</div>
                       </Link>
                     </>
