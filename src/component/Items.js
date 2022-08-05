@@ -1,3 +1,4 @@
+import '../App.css';
 import Header_navber from './Header_navber';
 import Fooder from './Fooder';
 import { useParams, Link } from "react-router-dom";
@@ -6,6 +7,10 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineEye, AiFillHeart, AiFillCaretRight } from "react-icons/ai";
 import Card from 'react-bootstrap/Card';
 import { FcEmptyTrash } from "react-icons/fc";
+
+import { MdOutlineShoppingCart } from "react-icons/md";
+
+import { RiShoppingBasketLine } from "react-icons/ri";
 
 
 
@@ -29,6 +34,17 @@ const Items = () => {
     }, [additems_data]);
 
 
+const addcard = ()=>{
+    console.log("add card")
+}
+
+
+const shopingcard = ()=>{
+    console.log("shopingcard")
+}
+
+
+
     return (
         <>
             <Header_navber />
@@ -45,8 +61,20 @@ const Items = () => {
                                         <Card style={{ marginTop: '15px' }}>
                                             <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
                                             <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
-                                            <Card.Body style={{ color: '#006a50' }}>
-                                                <center><Card.Title>{dx.item_name}</Card.Title></center>
+                                            <Card.Body>
+                                                <center><Card.Title>
+                                                    <div className='' style={{ color: '#282222', fontSize: '14px' }}>{dx.item_name}</div>
+                                                    <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}> <span style={{ color: 'rgb(52 126 219)'}}>Tk.{dx.regular_price}</span> <span className='text-dark' style={{ fontSize: '12px' }}>Tk.{dx.regular_price}</span></div>
+                                                    <div className='addcard_div py-3'>
+                                                        <div className='container-fluid'>
+                                                            <div className='row'>
+                                                                <div className='col-md-5 add py-2 border border-secondary' onClick={()=>addcard()}><MdOutlineShoppingCart /></div>
+                                                                <div className='col-md-1'></div>
+                                                                <div className='col-md-5 add py-2 border border-secondary' onClick={()=>shopingcard()}><RiShoppingBasketLine /></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </Card.Title></center>
                                             </Card.Body>
                                         </Card>
                                     </div>

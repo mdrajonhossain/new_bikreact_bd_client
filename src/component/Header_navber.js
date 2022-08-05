@@ -7,6 +7,9 @@ import { Link, useNavigate } from "react-router-dom";
 import OutsideClickHandler from 'react-outside-click-handler';
 import { AiOutlineMenu } from "react-icons/ai";
 import { cat_getdata } from '../api/api';
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { FaUserTie } from "react-icons/fa";
+
 
 
 
@@ -22,13 +25,13 @@ const Header_navber = () => {
   useEffect(() => {
 
     cat_getdata()
-      .then((res) => {        
+      .then((res) => {
         setDropcat(res.cat_data);
       })
   }, [])
 
- 
- 
+
+
 
 
   return (
@@ -73,14 +76,15 @@ const Header_navber = () => {
 
         <div className="web_mnu">
 
+
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
-            <div className="web drops" onClick={() => setShow(!show)} style={{ width:'', padding: '18px' }}> Shop By Catagory </div>            {show ?
+            <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}> Shop By Catagory </div>            {show ?
               <div className="article">
                 {dropcat.map((dx) => {
                   return (
                     <>
-                    <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
-                      <div className="cat_list"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} /> {dx.name}</div>
+                      <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
+                        <div className="cat_list"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} /> {dx.name}</div>
                       </Link>
                     </>
                   )
@@ -88,12 +92,17 @@ const Header_navber = () => {
               </div>
               : ''}
           </OutsideClickHandler>
-
           <div className="web h_menu"><Link to="/">Home</Link></div>
           <div className="web h_menu"><Link to="/">About</Link></div>
           <div className="web h_menu"><Link to="/">Blog</Link></div>
           <div className="web h_menu"><Link to="/">Contact</Link></div>
+
+          <div className="right_side_menu">
+            <div className="web"><Link to="/"> 0 Items <MdOutlineShoppingCart size={22}/></Link></div>
+            <div className="web"><Link to="/">MyAccount < FaUserTie size={22} /></Link></div>
+          </div>
         </div>
+
       </div>
 
 

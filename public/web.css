@@ -105,15 +105,18 @@ body {
 
 
 .web {
-  padding: 14px;
-  grid-area: 10;
+  padding: 14px;   
   text-align: center;
   cursor: pointer;
 }
 
 .h_menu a:hover {
   color: black;
-
+}
+.right_side_menu{
+  position: absolute;
+  right: 20px;
+  display: flex;
 }
 
 .fooder_web_view {
@@ -174,7 +177,7 @@ body {
 
 .card:hover {
   border: 0;
-  box-shadow: 0 2px 20px 86px rgb(10 221 207 / 0%), 0 10px 40px 1px rgb(16 149 146) !important;
+  box-shadow: 0 2px 20px 86px rgb(10 221 207 / 0%), 0 10px 40px 1px rgb(16 149 146 / 74%) !important;
   cursor: pointer;
 }
 

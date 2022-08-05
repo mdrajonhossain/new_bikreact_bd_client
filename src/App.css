@@ -1,0 +1,15 @@
+
+.addcard_div{    
+    color:#006a50;    
+}
+.add{
+    font-size: 22px;
+} 
+
+.add:hover{    
+    border-radius: 5px;
+    color: white;
+    background-color: #006a50;
+}
+
+ 
