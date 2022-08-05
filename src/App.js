@@ -17,7 +17,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />          
           <Route path="/sub_catagory/:id" element={<Subcatagory />} />
-
         </Routes>
       </Router>
     </>
