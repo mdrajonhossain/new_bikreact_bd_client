@@ -60,7 +60,24 @@ const additems_data = async (event) => {
 
 
 
-export { cat_getdata, sub_cat_data, additems_data };
+const add_card_items_local_data = async() => {
+    try {
+        var items = await JSON.parse(localStorage.getItem("items") || "[]");        
+        return items;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+
+export { 
+    cat_getdata,
+    sub_cat_data,
+    additems_data,
+    add_card_items_local_data
+ };
 
 
 

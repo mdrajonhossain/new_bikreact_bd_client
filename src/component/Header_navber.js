@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import OutsideClickHandler from 'react-outside-click-handler';
 import { AiOutlineMenu } from "react-icons/ai";
-import { cat_getdata } from '../api/api';
+import { cat_getdata, add_card_items_local_data } from '../api/api';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaUserTie } from "react-icons/fa";
 
@@ -18,6 +18,7 @@ import { FaUserTie } from "react-icons/fa";
 const Header_navber = () => {
   const [show, setShow] = useState(false);
   const [dropcat, setDropcat] = useState([]);
+  const [localdata, setLocaldata] = useState('');
 
   const navigate = useNavigate();
 
@@ -30,7 +31,14 @@ const Header_navber = () => {
       })
   }, [])
 
-
+  useEffect(() => {
+    setInterval(function () {
+      add_card_items_local_data()
+        .then((res) => {
+          setLocaldata(res.length);
+        })
+    }, 100);
+  }, [])
 
 
 
@@ -98,8 +106,8 @@ const Header_navber = () => {
           <div className="web h_menu"><Link to="/">Contact</Link></div>
 
           <div className="right_side_menu">
-            <div className="web"><Link to="/"> 0 Items <MdOutlineShoppingCart size={22}/></Link></div>
-            <div className="web"><Link to="/">MyAccount < FaUserTie size={22} /></Link></div>
+            <div className="web h_menu"><Link to="/"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
+            <div className="web h_menu"><Link to="/">MyAccount < FaUserTie size={22} /></Link></div>
           </div>
         </div>
 
