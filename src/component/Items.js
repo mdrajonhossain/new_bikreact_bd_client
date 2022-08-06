@@ -67,15 +67,15 @@ const Items = () => {
                                     <div className="col-md-3">
                                         <Card style={{ marginTop: '15px' }}>
                                             <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
-                                            <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
-                                            <div className="items_details">Details</div>
+                                            <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>                                            
+                                            <div className="items_discount_offer">{parseFloat(100/dx.regular_price*dx.discount_price-100).toFixed(2)}                                            
+                                            </div>                                            
                                             <Card.Body>
                                                 <center><Card.Title>
                                                     <div className='' style={{ color: '#282222', fontSize: '14px' }}>{dx.item_name}</div>
                                                     <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}>
                                                         <span style={{ color: 'rgb(52 126 219)' }}>Tk.{dx.regular_price} </span>
-                                                        <span className='text-dark' style={{ fontSize: '12px', textDecoration: 'line-through' }}> Tk.{dx.regular_price}</span>
-                                                        <span style={{ fontSize: '12px', color:'black'}}> - 20%</span>
+                                                        <span className='text-dark' style={{ fontSize: '12px', textDecoration: 'line-through' }}> Tk.{dx.discount_price}</span>
                                                         </div>
                                                     <div className='addcard_div py-3'>
                                                         <div className='container-fluid'>

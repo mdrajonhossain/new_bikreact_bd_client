@@ -10,8 +10,9 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { AiOutlineMenu } from "react-icons/ai";
 import { cat_getdata, add_card_items_local_data } from '../api/api';
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { FaUserTie } from "react-icons/fa";
 import { AiOutlineCaretDown } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
+
 
 
 
@@ -117,7 +118,7 @@ const Header_navber = () => {
 
           <div className="right_side_menu">
             <div className="web h_menu"><Link to="/"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
-            <div className="web h_menu"><Link to="/">MyAccount < FaUserTie size={22} /></Link></div>
+            <div className="web h_menu"><Link to="/">My Account < FaUserCircle size={24} /></Link></div>
           </div>
         </div>
 
