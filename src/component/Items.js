@@ -58,6 +58,9 @@ const Items = () => {
             <br />
 
             <div className="container">
+                {items_data.length != 0 ? <div className="items_filter"><input text="text" /></div> : ""}
+
+                
                 {items_data.length != 0 ? <div className="catagory_header">Items List <AiFillCaretRight fontSize={23} /></div> : ""}
                 <div className="row">
                     {

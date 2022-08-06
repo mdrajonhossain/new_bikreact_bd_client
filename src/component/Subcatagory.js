@@ -53,28 +53,26 @@ const Subcatagory = () => {
             <br />
 
             <div className="container">
-                {sub_data.length != 0 ? <div className="catagory_header">Sub Catagory List <AiFillCaretRight fontSize={23} /></div>  : ""}
-                {sub_data.length != 0 ? <div className="items_filter">Items Filter<AiFillCaretRight fontSize={23} /></div>  : ""}
-                <div className="row">
-                    {
-                        sub_data.length != 0 ?
-                            sub_data.map((dx) => {
-                                return (
-                                    <div className="col-md-3">
-                                        <Card style={{ marginTop: '15px' }}>
-                                            <Link to={`/getitems/${dx.slug}/${dx.category_id}`}>
-                                                <Card.Img variant="top" src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} />
-                                                <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
-                                                <Card.Body style={{ color: '#006a50' }}>
-                                                    <center><Card.Title>{dx.name}</Card.Title></center>
-                                                </Card.Body>
-                                            </Link>
-                                        </Card>
-                                    </div>
-                                )
-                            })
-                            : <div className='empty_sub_catagory'> <FcEmptyTrash fontSize={40} /> <br />No find sub catagory</div>
-                    }
+                {sub_data.length != 0 ? <div className="catagory_header">Sub Catagory List <AiFillCaretRight fontSize={23} /></div> : ""}
+                <div className="row">                    {
+                    sub_data.length != 0 ?
+                        sub_data.map((dx) => {
+                            return (
+                                <div className="col-md-3">
+                                    <Card style={{ marginTop: '15px' }}>
+                                        <Link to={`/getitems/${dx.slug}/${dx.category_id}`}>
+                                            <Card.Img variant="top" src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} />
+                                            <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
+                                            <Card.Body style={{ color: '#006a50' }}>
+                                                <center><Card.Title>{dx.name}</Card.Title></center>
+                                            </Card.Body>
+                                        </Link>
+                                    </Card>
+                                </div>
+                            )
+                        })
+                        : <div className='empty_sub_catagory'> <FcEmptyTrash fontSize={40} /> <br />No find sub catagory</div>
+                }
                 </div>
             </div>
             <br />
