@@ -53,7 +53,8 @@ const Subcatagory = () => {
             <br />
 
             <div className="container">
-                {sub_data.length != 0 ? <div className="catagory_header">Sub Catagory List <AiFillCaretRight fontSize={23} /></div> : ""}
+                {sub_data.length != 0 ? <div className="catagory_header">Sub Catagory List <AiFillCaretRight fontSize={23} /></div>  : ""}
+                {sub_data.length != 0 ? <div className="items_filter">Items Filter<AiFillCaretRight fontSize={23} /></div>  : ""}
                 <div className="row">
                     {
                         sub_data.length != 0 ?
