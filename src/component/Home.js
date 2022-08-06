@@ -1,3 +1,6 @@
+import '../App.css';
+import '../Web.css';
+import '../Mobile.css';
 import Carousels from './Carousels';
 import Header_navber from './Header_navber';
 import Catagory_list from './Catagory_list';

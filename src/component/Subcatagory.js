@@ -1,3 +1,6 @@
+import '../App.css';
+import '../Web.css';
+import '../Mobile.css';
 import Header_navber from './Header_navber';
 import Fooder from './Fooder';
 import { useParams, Link } from "react-router-dom";
