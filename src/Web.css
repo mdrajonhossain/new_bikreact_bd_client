@@ -1,11 +1,11 @@
 @media only screen and (min-width: 701px) {
 
-  
-body {
-  padding: 0px;
-  margin: 0px;
-  font-family: "PT Sans", sans-serif;
-}
+
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "PT Sans", sans-serif;
+  }
 
 
   .main {
@@ -411,6 +411,27 @@ body {
 
   /* fooder end  */
   /* =========================================================================================== */
+
+
+  .up_down_header_toggle_icon {
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    top: 40px;
+    text-align: center;
+    width: 223px;
+  }
+
+  .up_down_header_toggle_icon_roted {
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    top: 40px;
+    text-align: center;
+    width: 223px;
+    transform: rotate(180deg);
+  }
+
 
 
 }

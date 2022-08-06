@@ -11,6 +11,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { cat_getdata, add_card_items_local_data } from '../api/api';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaUserTie } from "react-icons/fa";
+import { AiOutlineCaretDown } from "react-icons/ai";
 
 
 
@@ -88,7 +89,14 @@ const Header_navber = () => {
 
 
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
-            <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}> Shop By Catagory </div>            {show ?
+            <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}> Shop By Catagory </div>
+            {show ?
+              <div className="up_down_header_toggle_icon" onClick={() => setShow(!show)}><AiOutlineCaretDown /></div>
+              :
+              <div className="up_down_header_toggle_icon_roted" onClick={() => setShow(!show)}><AiOutlineCaretDown /></div>
+            }
+
+            {show ?
               <div className="article">
                 {dropcat.map((dx) => {
                   return (
