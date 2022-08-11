@@ -16,13 +16,20 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 
 
 
-
-
-
-
 const Items = () => {
     const [items_data, setItems_data] = useState([]);
     let { id } = useParams();
+    
+
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
+
+    
+
 
 
     useEffect(() => {
@@ -59,7 +66,9 @@ const Items = () => {
 
             <div className="container">
                 {items_data.length != 0 ? <div className="items_filter">
-                    sadfasdf
+
+                    {/* <input type="range" class="form-range" id="customRange1"/> */}
+
                 </div>
                     : ""}
 
@@ -70,30 +79,28 @@ const Items = () => {
                         items_data.length != 0 ?
                             items_data.map((dx) => {
                                 return (
-                                    <div className="col-md-3">
+                                    <div className="col-md-2 col-6">
                                         <Card style={{ marginTop: '15px' }}>
                                             <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
                                             <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
                                             <div className="items_discount_offer">{parseFloat(100 / dx.regular_price * dx.discount_price - 100).toFixed(2)}
                                             </div>
-                                            <Card.Body>
-                                                <center><Card.Title>
-                                                    <div className='' style={{ color: '#282222', fontSize: '14px' }}>{dx.item_name}</div>
-                                                    <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}>
-                                                        <span style={{ color: 'rgb(52 126 219)' }}>Tk.{dx.discount_price} </span>
-                                                        <span className='text-dark' style={{ fontSize: '12px', textDecoration: 'line-through', textDecorationColor: 'red' }}> Tk.{dx.regular_price}</span>
-                                                    </div>
-                                                    <div className='addcard_div py-3'>
-                                                        <div className='container-fluid'>
-                                                            <div className='row'>
-                                                                <div className='col-md-5 add py-2' onClick={() => addcard(dx)}><MdOutlineShoppingCart /></div>
-                                                                <div className='col-md-1'></div>
-                                                                <div className='col-md-5 add py-2' onClick={() => shopingcard(dx)}><RiShoppingBasketLine /></div>
-                                                            </div>
+                                            <center><Card.Title>
+                                                <div className='p-2' style={{ fontSize: '15px', color: '#282222' }}>{dx.item_name}</div>
+                                                <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}>
+                                                    <span style={{ color: 'rgb(52 126 219)' }}>Tk.{dx.discount_price} </span>
+                                                    <span className='text-dark' style={{ fontSize: '12px', textDecoration: 'line-through', textDecorationColor: 'red' }}> Tk.{dx.regular_price}</span>
+                                                </div>
+                                                <div className='addcard_div py-3'>
+                                                    <div className='container-fluid'>
+                                                        <div className='row'>
+                                                            <div className='col-md-4 border border-1 col-4  add py-2' onClick={() => addcard(dx)}><MdOutlineShoppingCart /></div>
+                                                            <div className='col-md-4 col-4'></div>
+                                                            <div className='col-md-4 border border-1 col-4 add py-2' onClick={() => shopingcard(dx)}><RiShoppingBasketLine /></div>
                                                         </div>
                                                     </div>
-                                                </Card.Title></center>
-                                            </Card.Body>
+                                                </div>
+                                            </Card.Title></center>
                                         </Card>
                                     </div>
                                 )

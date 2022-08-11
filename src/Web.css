@@ -68,25 +68,31 @@
     border-bottom: 1px solid red;
   }
 
+/* items list start */
+ 
+
+
+/* items list End */
+
   .view_count {
-    top: 20px;
-    right: 30px;
+    top: 9px;
+    right: 7px;
     position: absolute;
     text-align: center;
     color: #006a50;
-    font-size: 11px;
-  }
+    font-size: 9px;
+}
 
- .items_discount_offer{
-  color: white;
-  background-color: #006a50;
-  padding: 5px 10px 5px 10px;
-  position: absolute;
-  top: 20px;
-  left: 40px;
-  font-size: 13px;
-  border-radius: 3px;
- }
+  .items_discount_offer {
+    color: white;
+    background-color: #006a50;
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    top: 9px;
+    left: 7px;
+    font-size: 9px;
+    border-radius: 3px;
+}
 
   .mobile_mnu {
     display: none;

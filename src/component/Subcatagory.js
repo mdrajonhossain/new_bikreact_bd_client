@@ -18,7 +18,10 @@ const Subcatagory = () => {
     const [sub_data, setSub_data] = useState([]);
     let { id } = useParams();
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+    
     useEffect(() => {
         try {
             var baseUrl = window.location.href;
@@ -33,18 +36,6 @@ const Subcatagory = () => {
         }
     }, [id]);
 
-    useEffect(() => {
-
-        try {
-            sub_cat_data(id)
-                .then((res) => {
-                    setSub_data(res.sub_id)
-                    console.log(res.sub_id);
-                })
-        } catch (err) {
-            console.log(err);
-        }
-    }, []);
 
 
     return (
@@ -60,9 +51,8 @@ const Subcatagory = () => {
                             return (
                                 <div className="col-md-3">
                                     <Card style={{ marginTop: '15px' }}>
-                                        <Link to={`/getitems/${dx.slug}/${dx.category_id}`}>
-                                            <Card.Img variant="top" src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} />
-                                            <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
+                                        <Link to={`/getitems/${dx.slug}/${dx.id}`}>
+                                            <Card.Img variant="top" src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} />                                            
                                             <Card.Body style={{ color: '#006a50' }}>
                                                 <center><Card.Title>{dx.name}</Card.Title></center>
                                             </Card.Body>
