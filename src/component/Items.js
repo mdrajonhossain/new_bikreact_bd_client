@@ -89,8 +89,8 @@ const Items = () => {
                                             <center><Card.Title>
                                                 <div className='p-2' style={{ fontSize: '15px', color: '#282222' }}>{dx.item_name}</div>
                                                 <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}>
-                                                    <span style={{ color: 'rgb(52 126 219)' }}>Tk.{dx.discount_price} </span>
-                                                    <span className='text-dark' style={{ fontSize: '12px', textDecoration: 'line-through', textDecorationColor: 'red' }}> Tk.{dx.regular_price}</span>
+                                                    <span className='text-dark' style={{ fontSize: '14px', textDecoration: 'line-through', textDecorationColor: 'red' }}> Tk.{dx.regular_price}</span>
+                                                    <span style={{ color: 'rgb(52 126 219)' }}> Tk.{dx.discount_price} </span>
                                                 </div>
                                                 <div className='addcard_div py-3'>
                                                     <div className='container-fluid'>
