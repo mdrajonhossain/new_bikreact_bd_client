@@ -86,6 +86,20 @@ const Header_navber = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <div className='top_header'>
@@ -128,7 +142,7 @@ const Header_navber = () => {
 
         <div className="web_mnu">
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
-            <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}> 
+            <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}>
               {is_item ? "Shop By Sub_Catagory" : "Shop By Catagory"}
             </div>
 
@@ -143,9 +157,9 @@ const Header_navber = () => {
 
                 {
                   is_item ?
-                  subcatagory_getapi.map((dx) => {
+                    subcatagory_getapi.map((dx) => {
                       return (
-                        <>                          
+                        <>
                           <Link to={`/getitems/${dx.slug}/${dx.id}`}>
                             <div className="cat_list"><img src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div>
                           </Link>
@@ -176,7 +190,15 @@ const Header_navber = () => {
 
           <div className="right_side_menu">
             <div className="web h_menu"><Link to="/add-card"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
-            <div className="web h_menu"><Link to="/">My Account < FaUserCircle size={24} /></Link></div>
+            <div className="web h_menu myaccount_navber"><Link to="/">My Account < FaUserCircle size={24} /></Link>
+                    <div className="myaccount">
+                      <div className="li_account">Registration</div>
+                      <div className="li_account">Login</div>
+                    </div>
+            </div>
+
+
+
           </div>
         </div>
 

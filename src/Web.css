@@ -494,5 +494,35 @@
   }
 
 
+.myaccount{
+  display: none;
+}
+
+.myaccount_navber:hover  .myaccount{
+  width: 250px;
+  line-height: 30px;  
+  display: block;
+  position: absolute;
+  top: 50px;
+  right:5px;  
+  color: #006a50;
+  text-align: left;    
+  border: 1px solid #006a50;
+}
+.li_account{  
+  border-top: 1px solid lightgray;
+  color: black;
+  padding: 10px 10px 10px 20px;
+  background-color: white;
+}
+
+.li_account:hover{  
+  border-top: 1px solid lightgray;
+  color: white;
+  padding: 10px 10px 10px 20px;
+  background-color: #006a50;
+}
+
+
 
 }

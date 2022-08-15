@@ -48,7 +48,7 @@ const Addcard = () => {
                     </div>
 
                     <div className="col-md-8 col-12">
-                        {loca_adddata.length != 0 &&
+                        {loca_adddata.length != 0 ?
                             <Table striped bordered hover>
                                 <thead>
                                     <tr className='bg-warning text-light'>
@@ -85,7 +85,7 @@ const Addcard = () => {
 
                                 </tbody>
                             </Table>
-                        }
+                        : <div className='text-center text-danger py-3'>No addcard data </div>}
                     </div>
                 </div>
             </div>
