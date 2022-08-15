@@ -86,7 +86,7 @@ const Items = () => {
 
 
                                             <div className="items_discount_offer_line">OFF</div>
-                                            <div className="items_discount_offer">{parseFloat(100 / dx.regular_price * dx.discount_price - 100).toFixed(0)}%</div>
+                                            <div className="items_discount_offer">{parseFloat(100 / dx.discount_price * dx.regular_price - 100).toFixed(0)}%</div>
 
                                             <center><Card.Title>
                                                 <div className='p-2' style={{ fontSize: '15px', color: '#282222' }}>{dx.item_name}</div>

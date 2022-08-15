@@ -79,7 +79,7 @@
     right: 7px;
     position: absolute;
     text-align: center;
-    color: #006a50;
+    color: white;
     font-size: 9px;
 }
 
@@ -93,21 +93,35 @@
     top: 30px;
     left: 0px;
     font-size: 13px;    
+    font-weight: bold;
   }
+  
   .items_discount_offer{
-    font-size: 10px;
+    font-size: 13px;
     color: white;
-    padding-top: 6px;
-    padding-left: 4px;
+    padding-top: 5px;
+    padding-left:4px;
     position: absolute;
-    background-color: red;
-    border: 1px solid red;
+    background-color: red;    
     width: 30px;
     height: 30px;
     top: 32px;
     left: 32px;
     border-radius: 50px;
+}
 
+.items_discount_offer:hover{
+  font-size: 13px;
+  color: white;
+  padding-top: 5px;
+  padding-left:4px;
+  position: absolute;
+  background-color:#006a50;
+  width: 30px;
+  height: 30px;
+  top: 32px;
+  left: 32px;
+  border-radius: 50px;
 }
 
   .mobile_mnu {
