@@ -175,7 +175,7 @@ const Header_navber = () => {
           <div className="web h_menu"><Link to="/">Contact</Link></div>
 
           <div className="right_side_menu">
-            <div className="web h_menu"><Link to="/"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
+            <div className="web h_menu"><Link to="/add-card"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
             <div className="web h_menu"><Link to="/">My Account < FaUserCircle size={24} /></Link></div>
           </div>
         </div>
