@@ -83,8 +83,11 @@ const Items = () => {
                                         <Card style={{ marginTop: '15px' }}>
                                             <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
                                             <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
-                                            <div className="items_discount_offer">{parseFloat(100 / dx.regular_price * dx.discount_price - 100).toFixed(2)}
-                                            </div>
+
+
+                                            <div className="items_discount_offer_line">OFF</div>
+                                            <div className="items_discount_offer">{parseFloat(100 / dx.regular_price * dx.discount_price - 100).toFixed(0)}%</div>
+
                                             <center><Card.Title>
                                                 <div className='p-2' style={{ fontSize: '15px', color: '#282222' }}>{dx.item_name}</div>
                                                 <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}>
