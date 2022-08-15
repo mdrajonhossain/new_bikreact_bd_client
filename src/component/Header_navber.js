@@ -8,7 +8,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import OutsideClickHandler from 'react-outside-click-handler';
 import { AiOutlineMenu } from "react-icons/ai";
-import { cat_getdata, add_card_items_local_data } from '../api/api';
+import { cat_getdata, add_card_items_local_data, subcat_getdata } from '../api/api';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
@@ -29,6 +29,7 @@ const Header_navber = () => {
   const [dropcat, setDropcat] = useState([]);
   const [localdata, setLocaldata] = useState('');
   const [is_item, setIs_item] = useState(false);
+  const [subcatagory_getapi, setSubcatagory_getapi] = useState([]);
 
 
   const navigate = useNavigate();
@@ -51,13 +52,28 @@ const Header_navber = () => {
 
 
 
-
   useEffect(() => {
     cat_getdata()
       .then((res) => {
         setDropcat(res.cat_data);
       })
   }, [])
+
+
+
+  // sub_catagory_get api start
+  useEffect(() => {
+    subcat_getdata()
+      .then((res) => {
+        setSubcatagory_getapi(res.sub_cat_data);
+      })
+  }, [])
+  // sub_catagory_get api end
+
+
+
+
+
 
   useEffect(() => {
     setInterval(function () {
@@ -112,7 +128,9 @@ const Header_navber = () => {
 
         <div className="web_mnu">
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
-            <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}> Shop By Catagory </div>
+            <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}> 
+              {is_item ? "Shop By Sub_Catagory" : "Shop By Catagory"}
+            </div>
 
             {show ?
               <div className="up_down_header_toggle_icon" onClick={() => setShow(!show)}><AiOutlineCaretDown /></div>
@@ -124,16 +142,26 @@ const Header_navber = () => {
               <div className="article">
 
                 {
-
-                  dropcat.map((dx) => {
-                    return (
-                      <>
-                        <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
-                          <div className="cat_list"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div>
-                        </Link>
-                      </>
-                    )
-                  })
+                  is_item ?
+                  subcatagory_getapi.map((dx) => {
+                      return (
+                        <>                          
+                          <Link to={`/getitems/${dx.slug}/${dx.id}`}>
+                            <div className="cat_list"><img src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div>
+                          </Link>
+                        </>
+                      )
+                    })
+                    :
+                    dropcat.map((dx) => {
+                      return (
+                        <>
+                          <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
+                            <div className="cat_list"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div>
+                          </Link>
+                        </>
+                      )
+                    })
 
 
                 }

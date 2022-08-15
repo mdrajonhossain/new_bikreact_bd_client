@@ -19,30 +19,28 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 const Items = () => {
     const [items_data, setItems_data] = useState([]);
     let { id } = useParams();
-    
+
 
 
 
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
 
 
     
-
-
-
     useEffect(() => {
         try {
+            var baseUrl = window.location.href;
+            var id = baseUrl.substring(baseUrl.lastIndexOf('/') + 1);
             additems_data(id)
                 .then((res) => {
                     setItems_data(res.items)
                 })
         } catch (error) {
             console.error(error);
-
         }
-    }, [additems_data]);
+    }, [id]);
 
     const addcard = (e) => {
         var sl = 1;

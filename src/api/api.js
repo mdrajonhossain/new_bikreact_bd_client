@@ -13,6 +13,18 @@ const cat_getdata = async () => {
 
 
 
+const subcat_getdata = async () => {
+    try {
+        const res = await axios.get('http://screete.bikretabd.com/admin/subcat_getclient')
+        return res.data;
+    }
+    catch (err) {
+        console.error("wrong", err);
+    }
+}
+
+
+
 
 const sub_cat_data = async (e) => {
     try {
@@ -74,7 +86,8 @@ const add_card_items_local_data = async() => {
 
 export { 
     cat_getdata,
-    sub_cat_data,
+    subcat_getdata,
+    sub_cat_data,    
     additems_data,
     add_card_items_local_data
  };
