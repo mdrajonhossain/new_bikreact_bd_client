@@ -51,7 +51,7 @@ const Addcard = () => {
                         {loca_adddata.length != 0 ?
                             <Table striped bordered hover>
                                 <thead>
-                                    <tr className='bg-warning text-light'>
+                                    <tr className='text-light' style={{background:'#006a50'}}>
                                         <th>image</th>
                                         <th>Item Name</th>
                                         <th>Quntity</th>

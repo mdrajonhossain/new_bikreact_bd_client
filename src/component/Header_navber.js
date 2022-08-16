@@ -13,6 +13,12 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { BiPhoneCall } from "react-icons/bi";
+import { FaLock } from "react-icons/fa";
+
+import { BiPencil } from "react-icons/bi";
+
+
+
 
 
 
@@ -192,8 +198,8 @@ const Header_navber = () => {
             <div className="web h_menu"><Link to="/add-card"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
             <div className="web h_menu myaccount_navber"><Link to="/">My Account < FaUserCircle size={24} /></Link>
                     <div className="myaccount">
-                      <div className="li_account">Registration</div>
-                      <div className="li_account">Login</div>
+                      <div className="li_account"><BiPencil /> Registration</div>
+                      <div className="li_account"><FaLock size={14} /> &nbsp;Login</div>
                     </div>
             </div>
 
