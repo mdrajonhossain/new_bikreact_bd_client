@@ -523,6 +523,20 @@
   background-color: #006a50;
 }
 
+.add-add-to-cart-button{
+  background-color: #f74258;
+  color: #fff;
+  height: 50px;
+  width: 200px;
+  padding: 0 18px 0 18px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: 1px solid transparent;
+  transition: all 0.2s ease;
+  border: 1px solid #f74258;
+}
+
 
 
 }

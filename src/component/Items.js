@@ -55,11 +55,7 @@ const Items = () => {
         console.log("shopingcard")
     }
 
-    const singleitemview = ()=>{
-        alert("asdfasdf");
-    }
-
-
+  
     return (
         <>
             <Header_navber />
@@ -82,10 +78,10 @@ const Items = () => {
                                 return (
                                     <div className="col-md-2 col-6">
                                         <Card style={{ marginTop: '15px' }}>
-                                        
-                                            <Card.Img variant="top" onClick={()=>singleitemview()} src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
+                                        <Link to={`/${dx.slug}/${dx.id}`}>
+                                            <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
                                             <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
-                                            
+                                        </Link>
                                             <div className="items_discount_offer_line">OFF</div>
                                             <div className="items_discount_offer">{parseFloat(100 / dx.discount_price * dx.regular_price - 100).toFixed(0)}%</div>
 

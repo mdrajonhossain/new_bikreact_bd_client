@@ -49,7 +49,7 @@ const sub_cat_data = async (e) => {
 
 
 const additems_data = async (event) => {
-    console.log(event)
+    
     try {
         var itemfile
         const itemsdta = {
@@ -84,12 +84,35 @@ const add_card_items_local_data = async() => {
 
 
 
+const single_items = async (event) => {
+    
+    try {
+        var itemfile
+        const itemsdta = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: event })
+        };
+        await fetch('http://screete.bikretabd.com/admin/signle_item_get_client', itemsdta)
+            .then(response => response.json())
+            .then((res) => {
+                itemfile = res;
+            });
+        return itemfile;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
 export { 
     cat_getdata,
     subcat_getdata,
     sub_cat_data,    
     additems_data,
-    add_card_items_local_data
+    add_card_items_local_data,
+    single_items
  };
 
 

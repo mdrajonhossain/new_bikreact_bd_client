@@ -21,7 +21,7 @@ const App = () => {
           <Route path="/sub_catagory/:slug/:id" element={<Subcatagory />} />          
           <Route path="/getitems/:slug/:id" element={<Items />} />          
           <Route path="/add-card" element={<Addcard />} />                    
-          <Route path="/single-items-view" element={<Single_view_items />} />          
+          <Route path="/:items_name/:id" element={<Single_view_items />} />
         </Routes>
       </Router>    
     </>
