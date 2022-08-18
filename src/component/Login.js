@@ -43,7 +43,7 @@ const Login = () => {
                     <br />
 
                     <div class="d-flex">
-                        <button type="button" class="h3 btn btn-lg btn-success">Register</button>
+                        <button disabled type="button" class="h3 btn btn-lg btn-success">Login</button>
                     </div>
                 </div>
             </div>

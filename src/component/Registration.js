@@ -71,7 +71,7 @@ const Registration = () => {
                     <br />
 
                     <div class="d-flex">
-                        <button type="button" class="h3 btn btn-lg btn-success">Register</button>                        
+                        <button type="button" disabled class="h3 btn btn-lg btn-success">Register</button>                        
                     </div>
                 </div>
             </div>
