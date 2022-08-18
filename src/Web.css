@@ -88,7 +88,7 @@
     border-radius: 0px 50px 50px 0px;
     color: red;
     background-color: white;
-    padding: 7px 0px 7px 7px;
+    padding: 7px 0px 7px 2px;
     position: absolute;
     top: 30px;
     left: 0px;
@@ -97,8 +97,9 @@
   }
   
   .items_discount_offer{
-    font-size: 13px;
-    color: white;
+    font-size: 11px;
+    color: white;     
+    justify-content: center;
     padding-top: 5px;
     padding-left:4px;
     position: absolute;
@@ -535,6 +536,19 @@
   outline: 1px solid transparent;
   transition: all 0.2s ease;
   border: 1px solid #f74258;
+}
+ 
+.imageone{
+  width: 100px;
+  height: 70px;
+  padding: 8px;
+}
+
+.imageone:hover{
+  padding: 5px;
+  filter: blur(1px);
+  cursor: pointer;
+  border: 1px solid gray;
 }
 
 

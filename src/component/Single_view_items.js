@@ -4,17 +4,18 @@ import '../Mobile.css';
 import Header_navber from './Header_navber';
 import Fooder from './Fooder';
 import { useParams, Link } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { single_items } from '../api/api';
 
 
 
 
 
-
 const Single_view_items = () => {
+    const srcRef = useRef(null);
     const [single_items_data, setSingle_items_data] = useState([]);
     const { id } = useParams();
+
 
 
     useEffect(() => {
@@ -36,6 +37,13 @@ const Single_view_items = () => {
     }, [id]);
 
 
+    const showimg = (e)=>{
+        
+        
+        srcRef.current.src = "http://screete.bikretabd.com/items_image_file/" + e;
+        
+
+    }
 
 
     return (
@@ -47,15 +55,30 @@ const Single_view_items = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                    {
+                        {
                             single_items_data.map((data) => {
                                 return (
-                                    <>                                        
-                                      <img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + data.fontimg} />
+                                    <>
+                                        <img ref={srcRef} src={"http://screete.bikretabd.com/items_image_file/" + data.fontimg} />
                                     </>
                                 )
                             })
                         }
+                        <br />
+
+                        {
+                            single_items_data.map((data) => {
+                                return (
+                                    <div style={{border:'1px solid lightgray', width:'84%'}}>
+                                        <img className="imageone" onClick={()=>showimg(data.fontimg)} src={"http://screete.bikretabd.com/items_image_file/" + data.fontimg} />
+                                        <img className="imageone" onClick={()=>showimg(data.backimg)} src={"http://screete.bikretabd.com/items_image_file/" + data.backimg} />
+                                    </div>
+                                )
+                            })
+                        }
+
+
+
                     </div>
                     <div className="col-md-8">
                         {
@@ -74,7 +97,6 @@ const Single_view_items = () => {
 
                         <button type="button" class="add-add-to-cart-button">ADD TO CART</button> &nbsp;
                         <button type="button" class="add-add-to-cart-button">BY NOW</button> &nbsp;
-                        <button type="button" class="add-add-to-cart-button">ADD TO WISHLIST</button>
 
                     </div>
 
