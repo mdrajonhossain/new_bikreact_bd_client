@@ -105,7 +105,7 @@ const Items = () => {
                                     </div>
                                 )
                             })
-                            : <div className='empty_sub_catagory'> <FcEmptyTrash fontSize={26} /> <br />No find sub catagory</div>
+                            : <div className='empty_sub_catagory'> <FcEmptyTrash fontSize={26} /> <br />Not found</div>
                     }
                 </div>
             </div>

@@ -61,7 +61,7 @@ const Subcatagory = () => {
                                 </div>
                             )
                         })
-                        : <div className='empty_sub_catagory'> <FcEmptyTrash fontSize={40} /> <br />No find sub catagory</div>
+                        : <div className='empty_sub_catagory'> <FcEmptyTrash fontSize={40} /> <br />not found data</div>
                 }
                 </div>
             </div>
