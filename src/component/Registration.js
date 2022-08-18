@@ -6,6 +6,8 @@ import Fooder from './Fooder';
 import { useParams, Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
 import { single_items } from '../api/api';
+import { AiFillEye } from "react-icons/ai";
+import { BsFillEyeSlashFill } from "react-icons/bs";
 
 
 
@@ -13,6 +15,8 @@ import { single_items } from '../api/api';
 
 
 const Registration = () => {
+    const [showpassone, setShowpassone] = useState(false);
+    const [showpasstwo, setShowpasstwo] = useState(false);
 
 
     return (
@@ -37,9 +41,20 @@ const Registration = () => {
                         <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
                     </div>
 
-                    <div class="py-2">
+                    <div class="py-2" style={{ position: 'relative' }}>
                         <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                        <input type={showpassone ? 'text' : 'password'} id="form3Example4cdg" class="form-control form-control-lg" />                        
+                        <div className="eye" onClick={() => setShowpassone(!showpassone)}>
+                            {showpassone ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
+                        </div>
+                    </div>
+
+                    <div class="py-2" style={{ position: 'relative' }}>
+                        <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                        <input type={showpasstwo ? 'text' : 'password'} id="form3Example4cdg" class="form-control form-control-lg" />                        
+                        <div className="eye" onClick={() => setShowpasstwo(!showpasstwo)}>
+                            {showpasstwo ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
+                        </div>
                     </div>
 
 
