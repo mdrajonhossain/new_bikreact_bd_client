@@ -196,11 +196,11 @@ const Header_navber = () => {
 
           <div className="right_side_menu">
             <div className="web h_menu"><Link to="/add-card"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
-            <div className="web h_menu myaccount_navber"><Link to="/">My Account < FaUserCircle size={24} /></Link>
-                    <div className="myaccount">
-                      <div className="li_account"><BiPencil /> Registration</div>
-                      <div className="li_account"><FaLock size={14} /> &nbsp;Login</div>
-                    </div>
+            <div className="web h_menu myaccount_navber">My Account < FaUserCircle size={24} />
+              <div className="myaccount">
+                <Link to="/registraton"><div className="li_account"><BiPencil /> Registration</div></Link>
+                <Link to="/login"><div className="li_account"><FaLock size={14} /> &nbsp;Login</div></Link>
+              </div>
             </div>
 
 
