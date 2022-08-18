@@ -553,7 +553,14 @@
   cursor: pointer;
   border: 1px solid gray;
 }
-
-
+.registration{
+  margin: 0 auto;
+}
+.eye{
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  cursor: pointer;
+}
 
 }
