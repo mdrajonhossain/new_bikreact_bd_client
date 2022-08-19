@@ -14,15 +14,9 @@ const Addcard = () => {
     const [loca_adddata, setLoca_adddata] = useState([]);
 
 
-
-
-
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
-
 
 
     useEffect(() => {
@@ -33,8 +27,6 @@ const Addcard = () => {
                 })
         }, 100);
     }, [])
-
- 
 
 
     const delet = (e) => {

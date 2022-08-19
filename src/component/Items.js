@@ -21,8 +21,6 @@ const Items = () => {
     let { id } = useParams();
 
 
-
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -70,21 +68,6 @@ const Items = () => {
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
