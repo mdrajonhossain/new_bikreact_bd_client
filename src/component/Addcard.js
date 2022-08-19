@@ -34,11 +34,13 @@ const Addcard = () => {
         }, 100);
     }, [])
 
+ 
+
+
     const delet = (e) => {
         const add_items = JSON.parse(localStorage.getItem("add_items"));
         add_items.splice(e, 1);
         localStorage.setItem('add_items', JSON.stringify(add_items));
-
     }
 
 
@@ -78,11 +80,9 @@ const Addcard = () => {
                                                         </td>
                                                         <td>{data.item_name}</td>
                                                         <td>
-                                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <button type="button" class="btn btn-primary">-</button>
-                                                                <button type="button" class="btn btn-light">{data.qnt}</button>
-                                                                <button type="button" class="btn btn-primary">+</button>
-                                                            </div>
+                                                            <input type="button" value="-" />
+                                                            <input type="number" value={data.qnt} style={{ width: '30px', textAlign: 'center' }} />
+                                                            <input type="button" value="+" />
                                                         </td>
                                                         <td>{data.price}</td>
                                                         <td> <span className='text-success' style={{ cursor: 'pointer' }}>Edit</span> || <span className="text-danger" style={{ cursor: 'pointer' }} onClick={() => delet(index)}>Delete</span></td>
