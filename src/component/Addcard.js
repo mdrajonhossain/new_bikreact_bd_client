@@ -34,12 +34,12 @@ const Addcard = () => {
         }, 100);
     }, [])
 
-    const delet = (e) =>{
+    const delet = (e) => {
         const add_items = JSON.parse(localStorage.getItem("add_items"));
         add_items.splice(e, 1);
-        localStorage.setItem('add_items',JSON.stringify(add_items));
-      
-      }
+        localStorage.setItem('add_items', JSON.stringify(add_items));
+
+    }
 
 
 
@@ -77,9 +77,15 @@ const Addcard = () => {
                                                             <img width="80" height="70" src={"http://screete.bikretabd.com/items_image_file/" + data.img} />
                                                         </td>
                                                         <td>{data.item_name}</td>
-                                                        <td>{data.qnt}</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                                <button type="button" class="btn btn-primary">-</button>
+                                                                <button type="button" class="btn btn-light">{data.qnt}</button>
+                                                                <button type="button" class="btn btn-primary">+</button>
+                                                            </div>
+                                                        </td>
                                                         <td>{data.price}</td>
-                                                        <td>Edit || <span style={{cursor:'pointer'}}onClick={()=>delet(index)}>Delete</span></td>
+                                                        <td> <span className='text-success' style={{ cursor: 'pointer' }}>Edit</span> || <span className="text-danger" style={{ cursor: 'pointer' }} onClick={() => delet(index)}>Delete</span></td>
                                                     </tr>
                                                 </>
                                             )
