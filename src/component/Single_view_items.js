@@ -19,6 +19,7 @@ import { AiOutlineFileProtect } from "react-icons/ai";
 const Single_view_items = () => {
     const srcRef = useRef(null);
     const [single_items_data, setSingle_items_data] = useState([]);
+    const [quntity, setQuntity] = useState(1);
     const { id } = useParams();
 
 
@@ -43,11 +44,7 @@ const Single_view_items = () => {
 
 
     const showimg = (e) => {
-
-
         srcRef.current.src = "http://screete.bikretabd.com/items_image_file/" + e;
-
-
     }
 
 
@@ -92,13 +89,16 @@ const Single_view_items = () => {
                                     <>
                                         <div className="h4 text-dark">{data.item_name}</div>
                                         <div className="h5 text-dark">Product Code : 5464</div>
-                                        <div className="h6 text-dark">৳ {data.discount_price}</div>
+                                        <div className="h6 text-dark">
+                                            <span style={{ fontSize: '14px', textDecoration: 'line-through', textDecorationColor: 'red' }}> ৳ {data.regular_price}</span>
+                                            <span> ৳ {data.discount_price}(Tk)</span>
+                                        </div>
                                         <br />
-                                        <div className="h6 text-dark">Quntity :</div>
+                                        <span className="h6 text-dark">Quntity : </span>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-primary">-</button>
-                                            <button type="button" class="btn btn-light">1</button>
-                                            <button type="button" class="btn btn-primary">+</button>
+                                            <button type="button" onClick={() => setQuntity(quntity <= 1 ? 1 : quntity - 1)} class="btn btn-primary">-</button>
+                                            <button type="button" class="btn btn-light">{quntity}</button>
+                                            <button type="button" onClick={() => setQuntity(quntity + 1)} class="btn btn-primary">+</button>
                                         </div>
 
                                     </>

@@ -28,7 +28,7 @@ const Items = () => {
     }, [])
 
 
-    
+
     useEffect(() => {
         try {
             var baseUrl = window.location.href;
@@ -42,20 +42,57 @@ const Items = () => {
         }
     }, [id]);
 
+
+
+    var a = 1;
     const addcard = (e) => {
-        var sl = 1;
-        const add_items = { "id": sl++, "items_id": e.id, "sub_cat_id": e.sub_cat_id, "item_name": e.item_name, "img": e.fontimg, "price": e.regular_price };
-        var items = JSON.parse(localStorage.getItem("items") || "[]");
-        items.push(add_items);
-        localStorage.setItem("items", JSON.stringify(items));
+        var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
+
+        if (add_items.length === 0) {
+            var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
+            const items = [{ "item_name": e.item_name, "img": e.fontimg, "price": e.regular_price, "qnt": 1 }];
+            localStorage.setItem("add_items", JSON.stringify(items));
+        } else {
+            var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
+
+            var mach = add_items.filter((dt) => {
+                return dt.item_name.match(e.item_name)
+            })
+            if (mach.length === 0) {
+                var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
+                add_items.push({ "item_name": e.item_name, "img": e.fontimg, "price": e.regular_price, "qnt": 1 });
+                localStorage.setItem("add_items", JSON.stringify(add_items));
+            } else {
+                var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
+                var index = add_items.findIndex(x => x.item_name === e.item_name);
+                add_items[index].qnt = add_items[index].qnt + 1;
+                localStorage.setItem("add_items", JSON.stringify(add_items));
+            }
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     const shopingcard = () => {
         console.log("shopingcard")
     }
 
-  
+
     return (
         <>
             <Header_navber />
@@ -78,10 +115,10 @@ const Items = () => {
                                 return (
                                     <div className="col-md-2 col-6">
                                         <Card style={{ marginTop: '15px' }}>
-                                        <Link to={`/${dx.slug}/${dx.id}`}>
-                                            <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
-                                            <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
-                                        </Link>
+                                            <Link to={`/${dx.slug}/${dx.id}`}>
+                                                <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
+                                                <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
+                                            </Link>
                                             <div className="items_discount_offer_line">OFF</div>
                                             <div className="items_discount_offer">{parseFloat(100 / dx.discount_price * dx.regular_price - 100).toFixed(0)}%</div>
 

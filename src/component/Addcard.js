@@ -34,6 +34,13 @@ const Addcard = () => {
         }, 100);
     }, [])
 
+    const delet = (e) =>{
+        const add_items = JSON.parse(localStorage.getItem("add_items"));
+        add_items.splice(e, 1);
+        localStorage.setItem('add_items',JSON.stringify(add_items));
+      
+      }
+
 
 
     return (
@@ -51,7 +58,7 @@ const Addcard = () => {
                         {loca_adddata.length != 0 ?
                             <Table striped bordered hover>
                                 <thead>
-                                    <tr className='text-light' style={{background:'#006a50'}}>
+                                    <tr className='text-light' style={{ background: '#006a50' }}>
                                         <th>image</th>
                                         <th>Item Name</th>
                                         <th>Quntity</th>
@@ -62,7 +69,7 @@ const Addcard = () => {
                                 <tbody>
                                     {
 
-                                        loca_adddata.map((data) => {
+                                        loca_adddata.map((data, index) => {
                                             return (
                                                 <>
                                                     <tr>
@@ -70,9 +77,9 @@ const Addcard = () => {
                                                             <img width="80" height="70" src={"http://screete.bikretabd.com/items_image_file/" + data.img} />
                                                         </td>
                                                         <td>{data.item_name}</td>
+                                                        <td>{data.qnt}</td>
                                                         <td>{data.price}</td>
-                                                        <td>{2 * data.price}</td>
-                                                        <td>Edit || Delete</td>
+                                                        <td>Edit || <span style={{cursor:'pointer'}}onClick={()=>delet(index)}>Delete</span></td>
                                                     </tr>
                                                 </>
                                             )
@@ -85,7 +92,7 @@ const Addcard = () => {
 
                                 </tbody>
                             </Table>
-                        : <div className='text-center text-danger py-3'>No addcard data </div>}
+                            : <div className='text-center text-danger py-3'>No addcard data </div>}
                     </div>
                 </div>
             </div>

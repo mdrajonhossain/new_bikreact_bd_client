@@ -74,8 +74,8 @@ const additems_data = async (event) => {
 
 const add_card_items_local_data = async() => {
     try {
-        var items = await JSON.parse(localStorage.getItem("items") || "[]");        
-        return items;
+        var add_items = await JSON.parse(localStorage.getItem("add_items") || "[]");        
+        return add_items;
     }
     catch (err) {
         console.log(err);
