@@ -12,6 +12,8 @@ import { add_card_items_local_data } from '../api/api';
 
 const Addcard = () => {
     const [loca_adddata, setLoca_adddata] = useState([]);
+        
+    const [quntitycounter, setQuntitycounter] = useState();
 
 
     useEffect(() => {
@@ -35,6 +37,15 @@ const Addcard = () => {
         localStorage.setItem('add_items', JSON.stringify(add_items));
     }
 
+    const itemscounter = (e)=>{
+        if(e[0] === 'incre'){
+            console.log(e[0])
+            console.log(e[1])
+        }else{
+            console.log(e[0])
+            console.log(e[1])
+        }
+    }
 
 
     return (
@@ -72,12 +83,12 @@ const Addcard = () => {
                                                         </td>
                                                         <td>{data.item_name}</td>
                                                         <td>
-                                                            <input type="button" value="-" />
-                                                            <input type="number" value={data.qnt} style={{ width: '30px', textAlign: 'center' }} />
-                                                            <input type="button" value="+" />
+                                                            <input type="button" onClick={()=>itemscounter([data, 'decre'])} value="-" />
+                                                            <span className="" style={{paddingRight:'6px', paddingLeft:'6px'}}>{data.qnt}</span>
+                                                            <input type="button" onClick={()=>itemscounter([data, 'incre'])} value="+" />
                                                         </td>
                                                         <td>{data.price}</td>
-                                                        <td> <span className='text-success' style={{ cursor: 'pointer' }}>Edit</span> || <span className="text-danger" style={{ cursor: 'pointer' }} onClick={() => delet(index)}>Delete</span></td>
+                                                        <td> <span className="text-danger" style={{ cursor: 'pointer' }} onClick={() => delet(index)}>Delete</span></td>
                                                     </tr>
                                                 </>
                                             )
