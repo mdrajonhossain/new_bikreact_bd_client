@@ -563,4 +563,21 @@
   cursor: pointer;
 }
 
+.search{
+  position: absolute;
+  top: 60px;
+  left: 250px;
+  right: 250px;
+  height: 45px;
+  width: 45%;
+  padding-left: 10px;
+  border: 1px solid white;
+  color: white;
+  background-color: #006a50;
+}
+
+.search:focus {
+  outline: none;
+}
+
 }

@@ -19,14 +19,6 @@ import { BiPencil } from "react-icons/bi";
 
 
 
-
-
-
-
-
-
-
-
 const Header_navber = () => {
   const location = useLocation();
 
@@ -131,7 +123,11 @@ const Header_navber = () => {
             </Link>
           </div>
 
-          <div className='col-md-4'></div>
+          <div className='col-md-4'> 
+            <input type="text" className="search" /> 
+          </div>
+
+
           <div className='col-md-4'>
             <img src={require("./offer.jpg")} width="300" height="70" alt="offer avater" style={{ padding: '8px 0px 0px 5px', marginLeft: '91px' }}></img>
           </div>
