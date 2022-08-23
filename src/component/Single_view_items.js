@@ -150,7 +150,7 @@ const Single_view_items = () => {
                                         <div className="h6 text-dark">
                                             <span style={{ fontSize: '14px', textDecoration: 'line-through', textDecorationColor: 'red' }}> ৳ {data.regular_price}</span>
                                             <span> ৳ {data.discount_price}(Tk)</span><br />
-                                            <span> Total ৳1000</span>
+                                            <span style={{fontSize:'22px'}}> Total : {data.discount_price*getitemscounter}(Tk)</span>
                                         </div>
                                         <br />
 
