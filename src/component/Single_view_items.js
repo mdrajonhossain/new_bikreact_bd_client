@@ -79,7 +79,7 @@ const Single_view_items = () => {
     const decrement = () => {
         var data = JSON.parse(localStorage.getItem("add_items") || "[]");
         var index = data.findIndex(x => x.item_name === single_items_data[0].item_name);
-        if (data[index].qnt < 1) {
+        if (data[index].qnt < 2) {
             var index = data.findIndex(x => x.item_name === single_items_data[0].item_name);        
             data.splice(index, 1);
             localStorage.setItem('add_items', JSON.stringify(data));
@@ -101,7 +101,7 @@ const Single_view_items = () => {
                     })
                     setGetitemscounter(match[0].qnt)
                 })
-        }, 100);
+        }, 10);
     })
 
 
