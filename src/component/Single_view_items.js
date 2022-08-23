@@ -54,7 +54,7 @@ const Single_view_items = () => {
 
         if (add_items.length === 0) {
             var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
-            const items = [{ "item_name": e.item_name, "img": e.fontimg, "price": e.regular_price, "qnt": 1 }];
+            const items = [{ "item_name": e.item_name, "img": e.fontimg, "price": e.discount_price, "qnt": 1 }];
             localStorage.setItem("add_items", JSON.stringify(items));
         } else {
             var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
@@ -63,7 +63,7 @@ const Single_view_items = () => {
             })
             if (mach.length === 0) {
                 var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
-                add_items.push({ "item_name": e.item_name, "img": e.fontimg, "price": e.regular_price, "qnt": 1 });
+                add_items.push({ "item_name": e.item_name, "img": e.fontimg, "price": e.discount_price, "qnt": 1 });
                 localStorage.setItem("add_items", JSON.stringify(add_items));
             } else {
                 var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
@@ -77,13 +77,8 @@ const Single_view_items = () => {
     const decrement = () => {
         var data = JSON.parse(localStorage.getItem("add_items") || "[]");
         var index = data.findIndex(x => x.item_name === single_items_data[0].item_name);
-        if (data[index].qnt < 2) {
-            var index = data.findIndex(x => x.item_name === single_items_data[0].item_name);
-            data.splice(index, 1);
-            localStorage.setItem('add_items', JSON.stringify(data));
-        } else {
+        if (data[index].qnt > 1) {            
             data[index].qnt = data[index].qnt - 1;
-
         }
         localStorage.setItem("add_items", JSON.stringify(data));
     }

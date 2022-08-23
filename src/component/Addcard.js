@@ -49,11 +49,7 @@ const Addcard = () => {
             var data = JSON.parse(localStorage.getItem("add_items") || "[]");
             var index = data.findIndex(x => x.item_name === e[0].item_name);
 
-            if (data[index].qnt < 2) {
-                var index = data.findIndex(x => x.item_name === e[0].item_name);
-                data.splice(index, 1);
-                localStorage.setItem('add_items', JSON.stringify(data));
-            } else {
+            if (data[index].qnt > 1) {                
                 data[index].qnt = data[index].qnt - 1;
             }
             localStorage.setItem("add_items", JSON.stringify(data));
