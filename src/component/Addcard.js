@@ -12,7 +12,7 @@ import { add_card_items_local_data } from '../api/api';
 
 const Addcard = () => {
     const [loca_adddata, setLoca_adddata] = useState([]);
-        
+
     const [quntitycounter, setQuntitycounter] = useState();
 
 
@@ -37,13 +37,22 @@ const Addcard = () => {
         localStorage.setItem('add_items', JSON.stringify(add_items));
     }
 
-    const itemscounter = (e)=>{
-        if(e[0] === 'incre'){
-            console.log(e[0])
-            console.log(e[1])
-        }else{
-            console.log(e[0])
-            console.log(e[1])
+    const itemscounter = (e) => {
+        if (e[1] === 'incre') {
+            var data = JSON.parse(localStorage.getItem("add_items") || "[]");
+            var index = data.findIndex(x => x.item_name === e[0].item_name);
+            data[index].qnt = data[index].qnt + 1;
+            localStorage.setItem("add_items", JSON.stringify(data));
+
+        }
+        if (e[1] === 'decre') {
+            var data = JSON.parse(localStorage.getItem("add_items") || "[]");
+            var index = data.findIndex(x => x.item_name === e[0].item_name);
+            if (data[index].qnt != 1) {
+                data[index].qnt = data[index].qnt - 1;
+            }
+            localStorage.setItem("add_items", JSON.stringify(data));
+
         }
     }
 
@@ -68,6 +77,7 @@ const Addcard = () => {
                                         <th>Item Name</th>
                                         <th>Quntity</th>
                                         <th>Price(tk)</th>
+                                        <th>Total(tk)</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -83,18 +93,19 @@ const Addcard = () => {
                                                         </td>
                                                         <td>{data.item_name}</td>
                                                         <td>
-                                                            <input type="button" onClick={()=>itemscounter([data, 'decre'])} value="-" />
-                                                            <span className="" style={{paddingRight:'6px', paddingLeft:'6px'}}>{data.qnt}</span>
-                                                            <input type="button" onClick={()=>itemscounter([data, 'incre'])} value="+" />
+                                                            <input type="button" onClick={() => itemscounter([data, 'decre'])} value="-" />
+                                                            <span className="" style={{ paddingRight: '6px', paddingLeft: '6px' }}>{data.qnt}</span>
+                                                            <input type="button" onClick={() => itemscounter([data, 'incre'])} value="+" />
                                                         </td>
                                                         <td>{data.price}</td>
+                                                        <td>{data.qnt * data.price}</td>
                                                         <td> <span className="text-danger" style={{ cursor: 'pointer' }} onClick={() => delet(index)}>Delete</span></td>
                                                     </tr>
                                                 </>
                                             )
                                         })}
                                     <tr>
-                                        <td colspan="3" align="right">Total = </td>
+                                        <td colspan="4" align="right">Total = </td>
                                         <td>1200 Tk</td>
                                     </tr>
 

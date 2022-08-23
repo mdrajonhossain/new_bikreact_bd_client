@@ -42,7 +42,7 @@ const Items = () => {
 
 
 
-    var a = 1;
+    
     const addcard = (e) => {
         var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
 

@@ -84,6 +84,8 @@ const add_card_items_local_data = async() => {
 
 
 
+
+
 const single_items = async (event) => {
     
     try {
@@ -104,6 +106,9 @@ const single_items = async (event) => {
         console.log(err);
     }
 }
+
+
+ 
 
 
 export { 

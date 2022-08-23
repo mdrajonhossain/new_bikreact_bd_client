@@ -195,7 +195,7 @@ const Header_navber = () => {
           <div className="web h_menu"><Link to="/">Contact</Link></div>
 
           <div className="right_side_menu">
-            <div className="web h_menu"><Link to="/add-card"> {localdata} Items <MdOutlineShoppingCart size={22} /></Link></div>
+            <div className="web h_menu"><Link to="/add-card"> {localdata === 0 ? <span style={{ color: 'white' }}>{localdata}</span> : <span style={{ color: 'red' }}>{localdata}</span>}  Items <MdOutlineShoppingCart size={22} /></Link></div>
             <div className="web h_menu myaccount_navber">My Account < FaUserCircle size={24} />
               <div className="myaccount">
                 <Link to="/registraton"><div className="li_account"><BiPencil /> Registration</div></Link>
