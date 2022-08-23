@@ -22,9 +22,7 @@ const Single_view_items = () => {
     const { id } = useParams();
     const [single_items_data, setSingle_items_data] = useState([]);
 
-    const [getitemscounter, setGetitemscounter] = useState();
-
-
+    const [getitemscounter, setGetitemscounter] = useState(0);
 
 
 
@@ -80,7 +78,7 @@ const Single_view_items = () => {
         var data = JSON.parse(localStorage.getItem("add_items") || "[]");
         var index = data.findIndex(x => x.item_name === single_items_data[0].item_name);
         if (data[index].qnt < 2) {
-            var index = data.findIndex(x => x.item_name === single_items_data[0].item_name);        
+            var index = data.findIndex(x => x.item_name === single_items_data[0].item_name);
             data.splice(index, 1);
             localStorage.setItem('add_items', JSON.stringify(data));
         } else {
@@ -150,17 +148,21 @@ const Single_view_items = () => {
                                         <div className="h6 text-dark">
                                             <span style={{ fontSize: '14px', textDecoration: 'line-through', textDecorationColor: 'red' }}> ৳ {data.regular_price}</span>
                                             <span> ৳ {data.discount_price}(Tk)</span><br />
-                                            <span style={{fontSize:'22px'}}> Total : {getitemscounter ? getitemscounter * data.discount_price + "(Tk)" : 0 }</span>
+                                            <span style={{ fontSize: '22px' }}> Total : {getitemscounter ? getitemscounter * data.discount_price + "(Tk)" : 0}</span>
                                         </div>
                                         <br />
 
-                                        <span className="h6 text-dark">Quntity : </span>
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button type="button" onClick={() => decrement()} class="btn btn-primary">-</button>
-                                            <button type="button" class="btn btn-light">{getitemscounter ? getitemscounter : 0}</button>
-                                            <button type="button" onClick={() => itemsincrementcounter(data)} class="btn btn-primary">+</button>
-                                        </div>
-                                        <button type="button" class="add-add-to-cart-button">ADD TO CART</button>
+                                        {getitemscounter ? <span className="h6 text-dark">Quntity : </span> : ''}
+                                        {getitemscounter ?
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" onClick={() => decrement()} class="btn btn-primary">-</button>
+                                                <button type="button" class="btn btn-light">{getitemscounter ? getitemscounter : 0}</button>
+                                                <button type="button" onClick={() => itemsincrementcounter(data)} class="btn btn-primary">+</button>
+                                            </div>
+                                            : 
+                                        <button onClick={() => itemsincrementcounter(data)} type="button" class="add-add-to-cart-button">ADD TO CART</button>
+                                        }
+                                        
                                     </>
                                 )
                             })
