@@ -37,6 +37,13 @@ const Header_navber = () => {
     try {
       const dd = location.pathname;
       const splitString = dd.split("/");
+      if(splitString[1] === ''){        
+        document.getElementsByClassName('drops')[0].style.display = 'none';        
+      }else{
+        document.getElementsByClassName('drops_cat_list_homepage')[0].style.display = 'none';        
+      }
+
+
       if (splitString[1] === 'getitems') {
         setIs_item(true)
       } else {
@@ -123,8 +130,8 @@ const Header_navber = () => {
             </Link>
           </div>
 
-          <div className='col-md-4'> 
-            <input type="text" className="search" /> 
+          <div className='col-md-4'>
+            <input type="text" className="search" />
           </div>
 
 
@@ -142,17 +149,25 @@ const Header_navber = () => {
           <div className="mobile"><AiOutlineMenu fontSize={25} /></div>
         </div>
 
-        <div className="web_mnu">
+        <div className="web_mnu" >
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
+
+            
+
+            <div className="drops_cat_list_homepage" style={{textAlign:'center', cursor:'pointer', width: '', padding: '18px' }}>
+              {is_item ? "Shop By Sub_Catagory" : "Shop By Catagory"}
+            </div>
+
+
             <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}>
               {is_item ? "Shop By Sub_Catagory" : "Shop By Catagory"}
             </div>
 
-            {show ?
+            {/* {show ?
               <div className="up_down_header_toggle_icon" onClick={() => setShow(!show)}><AiOutlineCaretDown /></div>
               :
               <div className="up_down_header_toggle_icon_roted" onClick={() => setShow(!show)}><AiOutlineCaretDown /></div>
-            }
+            } */}
 
             {show ?
               <div className="article">
@@ -178,10 +193,7 @@ const Header_navber = () => {
                         </>
                       )
                     })
-
-
                 }
-
               </div>
               : ''}
           </OutsideClickHandler>

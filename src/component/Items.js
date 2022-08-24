@@ -42,7 +42,7 @@ const Items = () => {
 
 
 
-    
+
     const addcard = (e) => {
         var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
 
@@ -82,7 +82,7 @@ const Items = () => {
             <br />
 
             <div className="container">
-                
+
                 {items_data.length != 0 ? <div className="catagory_header">Items List <AiFillCaretRight fontSize={23} /></div> : ""}
                 <div className="row">
                     {
@@ -95,13 +95,17 @@ const Items = () => {
                                                 <Card.Img variant="top" src={"http://screete.bikretabd.com/items_image_file/" + dx.fontimg} />
                                                 <div className="view_count"><AiOutlineEye fontSize={18} /> 25 <AiFillHeart fontSize={16} /> 25 </div>
                                             </Link>
-                                            <div className="items_discount_offer_line">OFF</div>
-                                            <div className="items_discount_offer">{parseFloat(100 / dx.regular_price * dx.discount_price - 100).toFixed(0).replace('-', '')}%</div>
+                                            {dx.discount_price != dx.regular_price && <div className="items_discount_offer_line">OFF</div>}
+                                            {dx.discount_price != dx.regular_price &&
+                                                <div className="items_discount_offer">{parseFloat(100 / dx.regular_price * dx.discount_price - 100).toFixed(0).replace('-', '')}%</div>
+                                            }
 
                                             <center><Card.Title>
                                                 <div className='p-2' style={{ fontSize: '15px', color: '#282222' }}>{dx.item_name}</div>
                                                 <div className='text-info' style={{ fontSize: '18px', marginTop: '10px' }}>
-                                                    <span className='text-dark' style={{ fontSize: '14px', textDecoration: 'line-through', textDecorationColor: 'red' }}> Tk.{dx.regular_price}</span>
+                                                    {dx.discount_price != dx.regular_price &&
+                                                        <span className='text-dark' style={{ fontSize: '14px', textDecoration: 'line-through', textDecorationColor: 'red' }}> Tk.{dx.regular_price}</span>
+                                                    }
                                                     <span style={{ color: 'rgb(52 126 219)' }}> Tk.{dx.discount_price} </span>
                                                 </div>
                                                 <div className='addcard_div py-3'>

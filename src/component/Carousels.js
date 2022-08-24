@@ -1,11 +1,20 @@
 import Carousel from 'react-bootstrap/Carousel';
 import Offer_slider from './Offer_slider';
-
+import React, { useState, useEffect, useRef } from 'react'
+import { cat_getdata} from '../api/api';
+import { Link } from "react-router-dom";
 
 
 const Carousels = () => {
+  const [dropcat, setDropcat] = useState([]);
 
 
+  useEffect(() => {
+    cat_getdata()
+      .then((res) => {
+        setDropcat(res.cat_data);
+      })
+  }, [])
 
 
 
@@ -17,9 +26,20 @@ const Carousels = () => {
       <div className='row'>
         <div className='col-md-4'>
           <div className="offer_box">
-            <Offer_slider />
-            <br /><br />
-            <Offer_slider />
+            {/* <Offer_slider /> */}
+            {/* <br /><br /> */}
+            {/* <Offer_slider /> */}
+            {
+              dropcat.map((dx) => {
+                return (
+                  <>
+                    <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
+                    <div className="cat_list_homepage"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div>
+                    </Link>
+                  </>
+                )
+              })
+            }
           </div>
         </div>
         <div className='col-md-8'>

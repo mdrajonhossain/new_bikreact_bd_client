@@ -39,8 +39,6 @@
     position: absolute;
     background: #006a50;
     overflow-y: scroll;
-
-
   }
 
   .cat_list {
@@ -66,6 +64,36 @@
     color: #2a2424;
     cursor: pointer;
     border-bottom: 1px solid red;
+  }
+
+
+
+  .drops_cat_list_homepage {
+    width: 231px;
+    background-color: #682222;
+  }
+
+  .cat_list_homepage {
+    display: flex;
+    text-align: center;
+    padding: 5px;    
+    line-height: 35px;
+  }
+
+  .cat_list_homepage img {
+    width: 31px;
+    height: 33px;
+    margin-top: 2px;
+    margin-left: 8px;
+    margin-right: 10px;
+  }
+
+  .cat_list_homepage:hover {
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(222 247 222);
+    color: #2a2424;
+    cursor: pointer;    
   }
 
 /* items list start */
@@ -202,11 +230,10 @@
     background: #28bd97;
   }
 
-  /* .offer_box{
-	height: 100%;
-	border: 1px solid #28bd97;
-	background-color: lightgray;	
-} */
+
+
+ 
+
   .carousel-control-prev {
     display: none !important
   }
@@ -214,6 +241,13 @@
   .carousel-control-next {
     display: none !important
   }
+
+  .offer_box{
+    height: 360px;
+    width: 350px;
+    overflow-y: auto;    
+  }
+
 
   .catagory_header {
     padding: 20px 20px 20px 20px;
