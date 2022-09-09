@@ -105,7 +105,7 @@ const Single_view_items = () => {
             <br />
 
 
-            <div className="container py-4" style={{ background: '#f3eaeab8' }}>
+            <div className="container py-4">
                 <div className="row">
                     <div className="col-md-4">
                         {
@@ -142,17 +142,16 @@ const Single_view_items = () => {
                                         <div className="h5 text-dark">Product Code : 5464</div>
                                         <div className="h6 text-dark">
                                             <span style={{ fontSize: '14px', textDecoration: 'line-through', textDecorationColor: 'red' }}> ৳ {data.regular_price}</span>
-                                            <span> ৳ {data.discount_price}(Tk)</span><br />
-                                            <span style={{ fontSize: '22px' }}> Total : {getitemscounter ? getitemscounter * data.discount_price + "(Tk)" : 0}</span>
+                                            <span style={{ color: '#006a50', fontSize:'20px'}}> ৳{data.discount_price}(Tk)</span><br />                                            
                                         </div>
                                         <br />
 
                                         {getitemscounter ? <span className="h6 text-dark">Quntity : </span> : ''}
                                         {getitemscounter ?
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" onClick={() => decrement()} class="btn btn-primary">-</button>
+                                                <button type="button" onClick={() => decrement()} class="btn" style={{ background: '#006a50', color: 'white'}}>-</button>
                                                 <button type="button" class="btn btn-light">{getitemscounter ? getitemscounter : 0}</button>
-                                                <button type="button" onClick={() => itemsincrementcounter(data)} class="btn btn-primary">+</button>
+                                                <button type="button" onClick={() => itemsincrementcounter(data)} class="btn" style={{ background: '#006a50', color: 'white'}}>+</button>
                                             </div>
                                             : 
                                         <button onClick={() => itemsincrementcounter(data)} type="button" class="add-add-to-cart-button">ADD TO CART</button>
@@ -170,7 +169,7 @@ const Single_view_items = () => {
 
                     </div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 py-2" style={{ background: '#f1ebeb7a' }}>
                         <div className='h6 text-lightgray'>Delivery</div>
                         <div className='text-lightgray py-2' style={{ position: 'reletive', }}><GoLocation /> 01, Banasree, Dhaka-1209, <br /> &nbsp; &nbsp; Bangladesh.
                             <span style={{ fontSize: '15px', position: 'absolute', right: '220px', fontWeight: 'bold', cursor: 'pointer' }}>Change</span>

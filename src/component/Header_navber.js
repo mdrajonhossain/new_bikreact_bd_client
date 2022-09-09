@@ -17,6 +17,10 @@ import { FaLock } from "react-icons/fa";
 
 import { BiPencil } from "react-icons/bi";
 
+import { AiOutlineSearch } from "react-icons/ai";
+
+
+
 
 
 const Header_navber = () => {
@@ -37,10 +41,10 @@ const Header_navber = () => {
     try {
       const dd = location.pathname;
       const splitString = dd.split("/");
-      if(splitString[1] === ''){        
-        document.getElementsByClassName('drops')[0].style.display = 'none';        
-      }else{
-        document.getElementsByClassName('drops_cat_list_homepage')[0].style.display = 'none';        
+      if (splitString[1] === '') {
+        document.getElementsByClassName('drops')[0].style.display = 'none';
+      } else {
+        document.getElementsByClassName('drops_cat_list_homepage')[0].style.display = 'none';
       }
 
 
@@ -124,18 +128,21 @@ const Header_navber = () => {
 
       <div className='container-fluid header_offer_image'>
         <div className='row'>
-          <div className='col-md-4 logo'>
+          <div className='col-md-3 logo'>
             <Link to="/">
               <img src={require("./logo.png")} width="200" style={{ padding: '5px' }} alt="logo avater" />
             </Link>
           </div>
 
-          <div className='col-md-4'>
-            <input type="text" className="search" />
+          <div className='col-md-5 pt-3'>
+            <div class="bar">
+              <input class="searchbar" type="text" title="Search"/>              
+              <AiOutlineSearch size={30} className='voice' />
+            </div>
           </div>
 
 
-          <div className='col-md-4'>
+          <div className='col-md-2'>
             <img src={require("./offer.jpg")} width="300" height="70" alt="offer avater" style={{ padding: '8px 0px 0px 5px', marginLeft: '91px' }}></img>
           </div>
         </div>
@@ -152,9 +159,9 @@ const Header_navber = () => {
         <div className="web_mnu" >
           <OutsideClickHandler onOutsideClick={() => setShow(false)}>
 
-            
 
-            <div className="drops_cat_list_homepage" style={{textAlign:'center', cursor:'pointer', width: '', padding: '18px' }}>
+
+            <div className="drops_cat_list_homepage" style={{ textAlign: 'center', cursor: 'pointer', width: '', padding: '18px' }}>
               {is_item ? "Shop By Sub_Catagory" : "Shop By Catagory"}
             </div>
 
@@ -203,7 +210,7 @@ const Header_navber = () => {
           <div className="web h_menu"><Link to="/">Contact</Link></div>
 
           <div className="right_side_menu">
-            <div className="web h_menu"><Link to="/add-card"> {localdata === 0 ? <span style={{ color: 'white' }}>{localdata}</span> : <span style={{ color: 'red' }}>{localdata}</span>}  Items <MdOutlineShoppingCart size={22} /></Link></div>
+            <div className="web h_menu" style={{ position: 'relative' }}><Link to="/add-card"> Items <MdOutlineShoppingCart size={22} /> <span className='item_counters'>{localdata}</span> </Link></div>
             <div className="web h_menu myaccount_navber">My Account < FaUserCircle size={24} />
               <div className="myaccount">
                 <Link to="/registraton"><div className="li_account"><BiPencil /> Registration</div></Link>

@@ -70,7 +70,7 @@
 
   .drops_cat_list_homepage {
     width: 231px;
-    background-color: #682222;
+    background-color: #682222;    
   }
 
   .cat_list_homepage {
@@ -78,6 +78,7 @@
     text-align: center;
     padding: 5px;    
     line-height: 35px;
+    border-bottom: 1px solid gray;
   }
 
   .cat_list_homepage img {
@@ -302,6 +303,14 @@
 
 
 
+
+  /* header Items counter start  */
+  .item_counters{
+    position: absolute;
+    top: 0px;
+    right: 22px;
+  }
+  /* header Items counter end */
 
 
 
@@ -597,21 +606,37 @@
   cursor: pointer;
 }
 
-.search{
-  position: absolute;
-  top: 60px;
-  left: 250px;
-  right: 250px;
+
+ 
+.bar{
+  margin:0 auto;
+  width:100%;
+  border-radius:30px;
+  border:1px solid #006a50;
+}
+.bar:hover{
+  box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+ 
+.searchbar {
   height: 45px;
-  width: 45%;
-  padding-left: 10px;
-  border: 1px solid white;
-  color: white;
-  background-color: #006a50;
+  border: none;
+  border-radius: 42px;
+  width: 90%;
+  font-size: 16px;
+  outline: none;
+  padding-left: 23px;
+}
+.voice{
+  height:20px;
+  position:relative;
+  top:0px;
+  left:15px;
+  cursor: pointer;  
+  color: #006a50;  
 }
 
-.search:focus {
-  outline: none;
-}
+
+
 
 }

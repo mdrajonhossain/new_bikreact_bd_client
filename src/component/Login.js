@@ -23,12 +23,13 @@ const Login = () => {
         <>
             <Header_navber />
 
-            <div class="container" style={{ background: '#f1fdf1', padding: '80px' }}>
-                <div style={{ width: '100%' }}>
-                    <h2 class="text-center mb-5">Login</h2>
+            <br />
 
+            <div className='col-12 col-md-5' style={{ margin:'0 auto', background: '#f1fdf1', padding: '30px' }}>
+
+                
                     <div class="">
-                        <label class="form-label" for="form3Example3cg">Your Email</label>
+                        <label class="form-label" for="form3Example3cg">Phone Number</label>
                         <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
                     </div>
 
@@ -43,9 +44,11 @@ const Login = () => {
                     <br />
 
                     <div class="d-flex">
-                        <button disabled type="button" class="h3 btn btn-lg btn-success">Login</button>
+                        <button disabled type="button" class="h3 btn btn-lg btn-success">Login</button> &nbsp;
+                        <button disabled type="button" class="h3 btn btn-lg btn-danger">Reset</button>
                     </div>
-                </div>
+
+                
             </div>
 
 

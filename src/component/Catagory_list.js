@@ -30,6 +30,7 @@ const Catagory_list = () => {
     return (
         <>
             <div className="container">
+                <div className="catagory_header">Ending 20:10:56 </div>
                 <div className="catagory_header">Catagory List <AiFillCaretRight fontSize={23} /></div>
                 <div className="row">
                     {cata.map((dx) => {
