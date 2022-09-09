@@ -15,6 +15,9 @@ import { BsFillEyeSlashFill } from "react-icons/bs";
 const Login = () => {
     const [showpass, setShowpass] = useState(false);
 
+    const [phone, setPhone] = useState("");
+    const [password, setPassword] = useState("");
+
 
 
     const validatePhoneNumber = (input_str) => {
@@ -30,8 +33,10 @@ const Login = () => {
         if (value.trim().length != 11) {
             if (testvalied) {
                 event.target.classList.remove('error');
+                setPhone(value);
             } else {
                 event.target.classList.add('error');                
+                setPhone('');
             }
         }
     }
@@ -43,12 +48,27 @@ const Login = () => {
 
 
         if (value.trim().length > 7 && value.trim().length < 11) {
-            event.target.classList.remove('error');            
+            event.target.classList.remove('error'); 
+            setPassword(value);
         } else {
             event.target.classList.add('error');
+            setPassword('');
         }
     }
 
+
+
+
+    const onesumbit = () => {
+               
+
+        if (phone.trim().length !== 0 && password.trim().length !== 0) {
+            const data = { 'phone': phone, 'password': password };
+            console.log(data);
+        } else {
+            alert("please form filup");
+        }
+    }
 
     return (
         <>
@@ -77,8 +97,8 @@ const Login = () => {
                     <br />
 
                     <div class="d-flex">
-                        <button disabled type="button" class="h3 btn btn-lg btn-success">Login</button> &nbsp;
-                        <button disabled type="button" class="h3 btn btn-lg btn-danger">Reset</button>
+                        <button type="button" onClick={() => onesumbit()} class="h3 btn btn-lg btn-success">Login</button> &nbsp;
+                        <button type="button" class="h3 btn btn-lg btn-danger">Reset</button>
                     </div>
 
                 
