@@ -691,6 +691,18 @@
   display: none;  
 }
 
+
+
+.error + .addresslerror {
+  display: block;
+}
+.addresslerror {
+  color: red;
+  font-size: 13px;
+  position: absolute;  
+  display: none;  
+}
+
 /* registration end */
 
 

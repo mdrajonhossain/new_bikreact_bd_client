@@ -111,6 +111,19 @@ const Registration = () => {
     }
 
 
+
+    const addressChange = (event) => {
+        const { name, value } = event.target;
+
+        if (value.trim().length > 55) {
+            event.target.classList.add('error')
+        } else {
+            event.target.classList.remove('error');
+        }
+    }
+
+
+
     const onsubmit = () => {
         console.log("asdfasdf");
     }
@@ -161,7 +174,8 @@ const Registration = () => {
 
                     <div class="py-2">
                         <label class="form-label" for="form3Example3cg">Address</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea onChange={addressChange} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <span className="addresslerror" style={{ position: 'relative' }}>Invalid.. minimum 42 letter address</span>
                     </div>
                     <br />
 
