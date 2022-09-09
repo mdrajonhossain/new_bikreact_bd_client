@@ -619,7 +619,7 @@
 }
  
 .searchbar {
-  height: 45px;
+  height: 40px;
   border: none;
   border-radius: 42px;
   width: 90%;
@@ -627,7 +627,7 @@
   outline: none;
   padding-left: 23px;
 }
-.voice{
+.search_icon{
   height:20px;
   position:relative;
   top:0px;
@@ -636,6 +636,40 @@
   color: #006a50;  
 }
 
+/* registration start */
+.error + .nameerror {
+  display: block;
+}
+.nameerror {
+  color: red;
+  font-size: 13px;
+  position: absolute;  
+  display: none;  
+}
+
+
+.error + .phoneerror {
+  display: block;
+}
+.phoneerror {
+  color: red;
+  font-size: 13px;
+  position: absolute;  
+  display: none;  
+}
+
+
+.error + .emailerror {
+  display: block;
+}
+.emailerror {
+  color: red;
+  font-size: 13px;
+  position: absolute;  
+  display: none;  
+}
+
+/* registration end */
 
 
 

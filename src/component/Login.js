@@ -27,7 +27,7 @@ const Login = () => {
 
             <div className='col-12 col-md-5' style={{ margin:'0 auto', background: '#f1fdf1', padding: '30px' }}>
 
-                
+            <h4 class="text-center mb-5" style={{color:'#006a50'}}>Welcome to Bikreta account login.</h4>
                     <div class="">
                         <label class="form-label" for="form3Example3cg">Phone Number</label>
                         <input type="email" id="form3Example3cg" class="form-control form-control-lg" />

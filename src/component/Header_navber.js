@@ -136,11 +136,10 @@ const Header_navber = () => {
 
           <div className='col-md-5 pt-3'>
             <div class="bar">
-              <input class="searchbar" type="text" title="Search"/>              
-              <AiOutlineSearch size={30} className='voice' />
+              <input class="searchbar" placeholder="Search by Items"  type="text" title="Search"/>              
+              <AiOutlineSearch size={35} className='search_icon' />
             </div>
           </div>
-
 
           <div className='col-md-2'>
             <img src={require("./offer.jpg")} width="300" height="70" alt="offer avater" style={{ padding: '8px 0px 0px 5px', marginLeft: '91px' }}></img>
