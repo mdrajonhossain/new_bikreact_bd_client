@@ -160,9 +160,10 @@ const Header_navber = () => {
 
 
 
-            <div className="drops_cat_list_homepage" style={{ textAlign: 'center', cursor: 'pointer', width: '', padding: '18px' }}>
+            {/* <div className="drops_cat_list_homepage" style={{ textAlign: 'center', cursor: 'pointer', width: '', padding: '18px' }}>
               {is_item ? "Shop By Sub_Catagory" : "Shop By Catagory"}
-            </div>
+            </div> */}
+            
 
 
             <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}>

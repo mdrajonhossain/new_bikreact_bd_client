@@ -250,11 +250,20 @@
   }
 
 
+  .ending_time {
+    padding: 20px 20px 20px 0px;
+    color: #006a50;
+    /* background-color: #006a50; */
+    
+    
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
   .catagory_header {
     padding: 20px 20px 20px 20px;
     color: #006a50;
-    background-color: lightgray;
-    margin-top: 20px;
+    background-color: lightgray;    
     margin-bottom: 20px;
     text-transform: uppercase;
     font-family: "PT Sans", sans-serif;
@@ -570,7 +579,7 @@
 .add-add-to-cart-button{
   background-color: #f74258;
   color: #fff;
-  position: absolute;
+  /* position: absolute; */
   bottom: 20px;
   height: 50px;
   width: 300px;
@@ -586,7 +595,7 @@
  
 .imageone{
   width: 100px;
-  height: 70px;
+  height: 85px;
   padding: 8px;
 }
 

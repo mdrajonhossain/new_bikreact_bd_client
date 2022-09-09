@@ -113,6 +113,7 @@ const Single_view_items = () => {
                                 return (
                                     <>
                                         <img ref={srcRef} src={"http://screete.bikretabd.com/items_image_file/" + data.fontimg} />
+                                        {/* <iframe src="https://www.youtube.com/embed/npnp--SSx_8" title="How To Embed YouTube Videos with iframe Tag in HTML - Tutorial for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
                                     </>
                                 )
                             })
@@ -123,6 +124,7 @@ const Single_view_items = () => {
                             single_items_data.map((data) => {
                                 return (
                                     <div style={{ border: '1px solid lightgray', width: '84%' }}>
+                                        {/* <iframe className="imageone" src="https://www.youtube.com/embed/npnp--SSx_8" title="How To Embed YouTube Videos with iframe Tag in HTML - Tutorial for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
                                         <img className="imageone" onClick={() => showimg(data.fontimg)} src={"http://screete.bikretabd.com/items_image_file/" + data.fontimg} />
                                         <img className="imageone" onClick={() => showimg(data.backimg)} src={"http://screete.bikretabd.com/items_image_file/" + data.backimg} />
                                     </div>
@@ -146,13 +148,13 @@ const Single_view_items = () => {
                                         </div>
                                         <br />
 
-                                        {getitemscounter ? <span className="h6 text-dark">Quntity : </span> : ''}
-                                        {getitemscounter ?
+                                        {getitemscounter ? <>
+                                            <span className="h6 text-dark">Quntity : </span>                                        
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" onClick={() => decrement()} class="btn" style={{ background: '#006a50', color: 'white'}}>-</button>
                                                 <button type="button" class="btn btn-light">{getitemscounter ? getitemscounter : 0}</button>
                                                 <button type="button" onClick={() => itemsincrementcounter(data)} class="btn" style={{ background: '#006a50', color: 'white'}}>+</button>
-                                            </div>
+                                            </div></>
                                             : 
                                         <button onClick={() => itemsincrementcounter(data)} type="button" class="add-add-to-cart-button">ADD TO CART</button>
                                         }
