@@ -66,7 +66,7 @@ const Login = () => {
             const data = { 'phone': phone, 'password': password };
             console.log(data);
         } else {
-            alert("please form filup");
+            alert("please form filup s");
         }
     }
 
