@@ -25,10 +25,14 @@ const Registration = () => {
 
     const [password, setPassword] = useState();
     const [conpassword, setConpassword] = useState();
+    const [address, setAddress] = useState();
+
+
+    const [valida, setValida] = useState(false);
 
 
 
-
+    
 
 
 
@@ -82,8 +86,6 @@ const Registration = () => {
 
     }
 
-
-
     const passChange = (event) => {
         const { name, value } = event.target;
 
@@ -97,36 +99,47 @@ const Registration = () => {
         }
     }
 
-
-
     const confpassChange = (event) => {
         const { name, value } = event.target;
 
         const match = password.toLowerCase().match(value.trim());
         if (match) {
             event.target.classList.remove('error');
+            setConpassword(value);
         } else {
             event.target.classList.add('error')
+            setConpassword('')
         }
     }
-
-
 
     const addressChange = (event) => {
         const { name, value } = event.target;
 
         if (value.trim().length > 55) {
             event.target.classList.add('error')
+            setAddress('')
         } else {
             event.target.classList.remove('error');
+            setAddress(value)
+        }
+    }
+
+    const onsubmit = () => {
+
+        if (names != '' && phone != '' && email != '' && password != '' && conpassword != '' && address != '') {
+            setValida(!valida)
+        }
+
+        if(valida){
+            const data = { 'name': names, 'phone': phone, 'email': email, 'password': password, 'conpassword': conpassword, 'address': address };
+            console.log(data);
+        }else{
+            alert("please form filup");
         }
     }
 
 
 
-    const onsubmit = () => {
-        console.log("asdfasdf");
-    }
 
     return (
         <>
@@ -180,7 +193,7 @@ const Registration = () => {
                     <br />
 
                     <div class="d-flex">
-                        <button type="button" onClick={() => onsubmit()} disabled class="h3 btn btn-lg btn-success">Register</button>
+                        <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg btn-success">Register</button>
                     </div>
                 </div>
             </div>
