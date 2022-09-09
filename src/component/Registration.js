@@ -21,9 +21,11 @@ const Registration = () => {
 
     const [names, setNames] = useState();
     const [phone, setPhone] = useState();
-    
-    
     const [email, setEmail] = useState();
+
+    const [password, setPassword] = useState();
+    const [conpassword, setConpassword] = useState();
+
 
 
 
@@ -69,7 +71,7 @@ const Registration = () => {
         const { name, value } = event.target;
 
         const match = value.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-        
+
         if (match) {
             event.target.classList.remove('error');
             setEmail(match[0])
@@ -82,6 +84,32 @@ const Registration = () => {
 
 
 
+    const passChange = (event) => {
+        const { name, value } = event.target;
+
+
+        if (value.trim().length > 7 && value.trim().length < 11) {
+            event.target.classList.remove('error');
+            setPassword(value)
+        } else {
+            event.target.classList.add('error')
+            setPassword('')
+        }
+    }
+
+
+
+    const confpassChange = (event) => {
+        const { name, value } = event.target;
+
+        const match = password.toLowerCase().match(value.trim());
+        if (match) {
+            event.target.classList.remove('error');
+        } else {
+            event.target.classList.add('error')
+        }
+    }
+
 
     const onsubmit = () => {
         console.log("asdfasdf");
@@ -93,29 +121,30 @@ const Registration = () => {
             <br />
             <div className='col-12 col-md-5' style={{ margin: '0 auto', background: '#f1fdf1', padding: '30px' }}>
                 <div style={{ width: '100%' }}>
-                    <h4 class="text-center mb-5" style={{color:'#006a50'}}>Create your Bikreta Account</h4>
+                    <h4 class="text-center mb-5" style={{ color: '#006a50' }}>Create your Bikreta Account</h4>
                     <div class="py-2">
                         <label class="form-label" for="form3Example1cg">Name</label>
                         <input type="text" onChange={nameChange} id="form3Example1cg" class="form-control form-control-lg" />
-                        <span className="nameerror" style={{ position: 'relative' }}>Invalid Name</span>
+                        <span className="nameerror" style={{ position: 'relative' }}>Invalid... Minimum length 25 letter</span>
                     </div>
 
                     <div class="py-2">
                         <label class="form-label" for="form3Example3cg">Phone Number</label>
                         <input type="text" onChange={phoneChange} id="form3Example3cg" class="form-control form-control-lg" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
-                        <span className="phoneerror" style={{ position: 'relative' }}>Invalid phone number</span>
+                        <span className="phoneerror" style={{ position: 'relative' }}>Invalid... Minimum length 11 letter</span>
                     </div>
 
                     <div class="py-2">
                         <label class="form-label" for="form3Example3cg">Email</label>
                         <input type="email" onChange={emailChange} id="form3Example3cg" class="form-control form-control-lg" />
-                        <span className="emailerror" style={{ position: 'relative' }}>Invalid email number</span>
+                        <span className="emailerror" style={{ position: 'relative' }}>Invalid email address</span>
                     </div>
 
 
                     <div class="py-2" style={{ position: 'relative' }}>
                         <label class="form-label" for="form3Example4cdg">Password</label>
-                        <input type={showpassone ? 'text' : 'password'} class="form-control form-control-lg" />
+                        <input onChange={passChange} type={showpassone ? 'text' : 'password'} class="form-control form-control-lg" />
+                        <span className="passlerror" style={{ position: 'relative' }}>Invalid password (Charecture length 8 - 10 letter)</span>
                         <div className="eye" onClick={() => setShowpassone(!showpassone)}>
                             {showpassone ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
                         </div>
@@ -123,7 +152,8 @@ const Registration = () => {
 
                     <div class="py-2" style={{ position: 'relative' }}>
                         <label class="form-label" for="form3Example4cdg">Confirm password</label>
-                        <input type={showpasstwo ? 'text' : 'password'} class="form-control form-control-lg" />
+                        <input onChange={confpassChange} type={showpasstwo ? 'text' : 'password'} class="form-control form-control-lg" />
+                        <span className="conpasslerror" style={{ position: 'relative' }}>Invalid password (Charecture length 8 - 10 letter)</span>
                         <div className="eye" onClick={() => setShowpasstwo(!showpasstwo)}>
                             {showpasstwo ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
                         </div>

@@ -136,7 +136,7 @@ const Header_navber = () => {
 
           <div className='col-md-5 pt-3'>
             <div class="bar">
-              <input class="searchbar" placeholder="Search by Items in Bikreta"  type="text" title="Search"/>              
+              <input class="searchbar" placeholder="Search by items in Bikreta"  type="text" title="Search"/>              
               <AiOutlineSearch size={35} className='search_icon' />
             </div>
           </div>

@@ -669,6 +669,28 @@
   display: none;  
 }
 
+
+.error + .passlerror {
+  display: block;
+}
+.passlerror {
+  color: red;
+  font-size: 13px;
+  position: absolute;  
+  display: none;  
+}
+
+
+.error + .conpasslerror {
+  display: block;
+}
+.conpasslerror {
+  color: red;
+  font-size: 13px;
+  position: absolute;  
+  display: none;  
+}
+
 /* registration end */
 
 
