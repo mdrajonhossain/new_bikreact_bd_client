@@ -19,20 +19,27 @@ const Registration = () => {
     const [showpassone, setShowpassone] = useState(false);
     const [showpasstwo, setShowpasstwo] = useState(false);
 
-    const [names, setNames] = useState();
-    const [phone, setPhone] = useState();
-    const [email, setEmail] = useState();
+    const [names, setNames] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
 
-    const [password, setPassword] = useState();
-    const [conpassword, setConpassword] = useState();
-    const [address, setAddress] = useState();
+    const [password, setPassword] = useState("");
+    const [conpassword, setConpassword] = useState("");
+    const [address, setAddress] = useState("");
 
 
     const [valida, setValida] = useState(false);
 
 
 
-    
+    // useEffect(() => {
+        
+    //         if (names != '' && phone != '' && email != '' && password != '' && conpassword != '' && address != '') {
+    //             setValida(!valida)
+    //         }
+        
+    // }, [100])
+
 
 
 
@@ -115,9 +122,10 @@ const Registration = () => {
     const addressChange = (event) => {
         const { name, value } = event.target;
 
+        setAddress('')
+
         if (value.trim().length > 55) {
             event.target.classList.add('error')
-            setAddress('')
         } else {
             event.target.classList.remove('error');
             setAddress(value)
@@ -125,15 +133,10 @@ const Registration = () => {
     }
 
     const onsubmit = () => {
-
-        if (names != '' && phone != '' && email != '' && password != '' && conpassword != '' && address != '') {
-            setValida(!valida)
-        }
-
-        if(valida){
+        if (names.trim().length !== 0 && phone.trim().length !== 0 && email.trim().length !== 0 && password.trim().length !== 0 && conpassword.trim().length !== 0 && address.trim().length !== 0) {
             const data = { 'name': names, 'phone': phone, 'email': email, 'password': password, 'conpassword': conpassword, 'address': address };
             console.log(data);
-        }else{
+        } else {
             alert("please form filup");
         }
     }
@@ -192,9 +195,9 @@ const Registration = () => {
                     </div>
                     <br />
 
-                    <div class="d-flex">
-                        <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg btn-success">Register</button>
-                    </div>
+                        <div class="d-flex">                    
+                            <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg btn-success">Register</button>                    
+                        </div>
                 </div>
             </div>
             <br />
