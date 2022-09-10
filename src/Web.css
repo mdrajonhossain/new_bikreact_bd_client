@@ -624,7 +624,7 @@
 .bar{
   margin:0 auto;
   width:100%;
-  border-radius:30px;
+  border-radius: 30px 30px 30px 30px;
   border:1px solid #006a50;
 }
 .bar:hover{
@@ -634,19 +634,23 @@
 .searchbar {
   height: 40px;
   border: none;
-  border-radius: 42px;
-  width: 90%;
+  border-radius: 42px;  
+  width: 90%;  
   font-size: 16px;
   outline: none;
   padding-left: 23px;
 }
-.search_icon{
-  height:20px;
-  position:relative;
+.search_icon{  
+  position: relative;
   top:0px;
-  left:15px;
+  height: 45px;
+  width: 50px;
+  padding: 10px;
+  left:3px;
   cursor: pointer;  
-  color: #006a50;  
+  color: white;  
+  background-color: #006a50;
+  border-radius: 0px 20px 20px 0px;
 }
 
 /* registration start */
