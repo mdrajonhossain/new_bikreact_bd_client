@@ -33,9 +33,7 @@ const Carousels = () => {
               dropcat.map((dx) => {
                 return (
                   <>
-                    <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}>
-                    <div className="cat_list_homepage"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div>
-                    </Link>
+                    <Link to={`/sub_catagory/${dx.slug}/${dx.id}`}><div className="cat_list_homepage"><img src={"http://screete.bikretabd.com/catagory/" + dx.catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div></Link>
                   </>
                 )
               })

@@ -187,9 +187,7 @@ const Header_navber = () => {
                     subcatagory_getapi.map((dx) => {
                       return (
                         <>
-                          <Link to={`/getitems/${dx.slug}/${dx.id}`}>
-                            <div className="cat_list"><img src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div>
-                          </Link>
+                          <Link to={`/getitems/${dx.slug}/${dx.id}`}><div className="cat_list"><img src={"http://screete.bikretabd.com/subcatagory/" + dx.sub_catagory_img} style={{ borderRadius: '25px' }} /> {dx.name}</div></Link>
                         </>
                       )
                     })
