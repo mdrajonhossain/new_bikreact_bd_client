@@ -12,8 +12,8 @@ import { add_card_items_local_data } from '../api/api';
 
 const Addcard = () => {
     const [loca_adddata, setLoca_adddata] = useState([]);
-
     const [quntitycounter, setQuntitycounter] = useState();
+    
 
 
     useEffect(() => {
@@ -58,9 +58,6 @@ const Addcard = () => {
     }
 
  
-
-
-
 
     return (
         <>
