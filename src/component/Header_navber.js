@@ -4,7 +4,7 @@ import '../Web.css';
 import '../Mobile.css';
 import React, { useState, useEffect, useRef } from 'react'
 
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import OutsideClickHandler from 'react-outside-click-handler';
 import { AiOutlineMenu } from "react-icons/ai";
@@ -25,6 +25,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 const Header_navber = () => {
   const location = useLocation();
+  let navigate = useNavigate();
 
 
   const [show, setShow] = useState(false);
@@ -32,9 +33,10 @@ const Header_navber = () => {
   const [localdata, setLocaldata] = useState('');
   const [is_item, setIs_item] = useState(false);
   const [subcatagory_getapi, setSubcatagory_getapi] = useState([]);
+  
+  const [searchdata, setSearchdata] = useState("");
 
 
-  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -99,12 +101,13 @@ const Header_navber = () => {
 
 
 
-
-
-
-
-
-
+  const searchitems = () => {    
+    if(searchdata){
+      navigate(`/Search_items/${searchdata}`, {state: {searchdata: searchdata}});
+    }else{
+      alert("please search items")
+    }
+  }
 
 
 
@@ -136,8 +139,8 @@ const Header_navber = () => {
 
           <div className='col-md-5 pt-3'>
             <div class="bar">
-              <input class="searchbar" placeholder="Search by items in Bikreta"  type="text" title="Search"/>              
-              <AiOutlineSearch size={35} className='search_icon' />
+              <input class="searchbar" placeholder="Search by items in Bikreta" value={searchdata} onChange={e => setSearchdata(e.target.value)} type="text" title="Search" />
+              <AiOutlineSearch size={35} className='search_icon' onClick={() => searchitems()} />
             </div>
           </div>
 
@@ -163,7 +166,7 @@ const Header_navber = () => {
             {/* <div className="drops_cat_list_homepage" style={{ textAlign: 'center', cursor: 'pointer', width: '', padding: '18px' }}>
               {is_item ? "Shop By Sub_Catagory" : "Shop By Catagory"}
             </div> */}
-            
+
 
 
             <div className="web drops" onClick={() => setShow(!show)} style={{ width: '', padding: '18px' }}>
