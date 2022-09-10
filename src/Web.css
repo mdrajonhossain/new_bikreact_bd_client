@@ -78,8 +78,18 @@
     text-align: center;
     padding: 5px;    
     line-height: 35px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #006a50;    
+    color:#006a50;
   }
+
+  .cat_list_homepage:hover {
+    text-align: center;
+    padding: 5px;
+    background-color: #006a50;
+    color: white;
+    cursor: pointer;    
+  }
+
 
   .cat_list_homepage img {
     width: 31px;
@@ -87,14 +97,6 @@
     margin-top: 2px;
     margin-left: 8px;
     margin-right: 10px;
-  }
-
-  .cat_list_homepage:hover {
-    text-align: center;
-    padding: 5px;
-    background-color: rgb(222 247 222);
-    color: #2a2424;
-    cursor: pointer;    
   }
 
 /* items list start */
