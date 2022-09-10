@@ -108,6 +108,28 @@ const single_items = async (event) => {
 }
 
 
+const searchitmes = async (event) => {
+    
+    try {
+        var searchdata
+        const itemsdta = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ items_name: event })
+        };
+        await fetch('http://screete.bikretabd.com/admin/search_items', itemsdta)
+            .then(response => response.json())
+            .then((res) => {
+                searchdata = res;
+            });
+        return searchdata;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
  
 
 
@@ -117,7 +139,8 @@ export {
     sub_cat_data,    
     additems_data,
     add_card_items_local_data,
-    single_items
+    single_items,
+    searchitmes
  };
 
 
