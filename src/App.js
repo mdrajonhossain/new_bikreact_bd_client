@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/add-card" element={<Addcard />} />                    
           <Route path="/:items_name/:id" element={<Single_view_items />} />
                     
-          <Route path="/search_items/:name" element={<Search_items />} />                    
+          <Route path="/Search_by_items/:name" element={<Search_items />} />                    
           
           <Route path="/registraton" element={<Registration />} />          
           <Route path="/login" element={<Login />} />          

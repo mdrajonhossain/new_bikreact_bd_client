@@ -250,16 +250,18 @@
   }
 
 
-  .ending_time {
-    padding: 20px 20px 20px 0px;
-    color: #006a50;
-    /* background-color: #006a50; */
-    
-    
-    font-family: "PT Sans", sans-serif;
-    font-weight: bold;
-    font-size: 20px;
+  .ending_time {    
+    color: #006a50;    
+    font-size: 18px;
+    padding: 20px;
   }
+
+.ending_hour{
+  padding: 4px 4px 4px 4px;
+  color: white;
+  background-color: #006a50;
+}
+
   .catagory_header {
     padding: 20px 20px 20px 20px;
     color: #006a50;

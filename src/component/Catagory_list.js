@@ -25,12 +25,12 @@ const Catagory_list = () => {
                 setCata(res.cat_data);
             })
     }, [])
-
+    
 
     return (
         <>
             <div className="container">
-                <div className="ending_time">Ending 20:10:56 </div>
+                <div className="ending_time">Ending in  &nbsp; <span className="ending_hour"> 20 </span>&nbsp;: <span className="ending_hour"> 10 </span>&nbsp;: <span className="ending_hour"> 56 </span> </div>
                 <div className="catagory_header">Catagory List <AiFillCaretRight fontSize={23} /></div>
                 <div className="row">
                     {cata.map((dx) => {

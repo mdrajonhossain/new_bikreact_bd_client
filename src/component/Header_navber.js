@@ -103,7 +103,7 @@ const Header_navber = () => {
 
   const searchitems = () => {    
     if(searchdata){
-      navigate(`/Search_items/${searchdata}`, {state: {searchdata: searchdata}});
+      navigate(`/Search_by_items/${searchdata}`, {state: {searchdata: searchdata}});
     }else{
       alert("please search items")
     }
