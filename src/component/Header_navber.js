@@ -33,7 +33,7 @@ const Header_navber = () => {
   const [localdata, setLocaldata] = useState('');
   const [is_item, setIs_item] = useState(false);
   const [subcatagory_getapi, setSubcatagory_getapi] = useState([]);
-  
+
   const [searchdata, setSearchdata] = useState("");
 
 
@@ -101,15 +101,17 @@ const Header_navber = () => {
 
 
 
-  const searchitems = () => {    
-    if(searchdata){
-      navigate(`/Search_by_items/${searchdata}`, {state: {searchdata: searchdata}});
-    }else{
+  const searchitems = () => {
+    if (searchdata) {
+      navigate(`/Search_by_items/${searchdata}`, { state: { searchdata: searchdata } });
+    } else {
       alert("please search items")
     }
   }
 
 
+
+  console.log(123, searchdata);
 
 
   return (
