@@ -135,11 +135,11 @@ const Header_navber = () => {
         <div className='row'>
           <div className='col-md-3 logo'>
             <Link to="/">
-              <img src={require("./logo.png")} width="200" style={{ padding: '5px' }} alt="logo avater" />
+              <img src={require("./logo.png")} width="175" style={{ padding: '5px' }} alt="logo avater" />
             </Link>
           </div>
 
-          <div className='col-md-5 pt-3'>
+          <div className='col-md-5 pt-2'>
             <div class="bar">
               <input class="searchbar" placeholder="Search by items in Bikreta" value={searchdata} onChange={e => setSearchdata(e.target.value)} type="text" title="Search" />
               <AiOutlineSearch size={35} className='search_icon' onClick={() => searchitems()} />
@@ -147,7 +147,7 @@ const Header_navber = () => {
           </div>
 
           <div className='col-md-2'>
-            <img src={require("./offer.jpg")} width="300" height="70" alt="offer avater" style={{ padding: '8px 0px 0px 5px', marginLeft: '91px' }}></img>
+            <img src={require("./offer.jpg")} width="300" height="70" alt="offer avater" style={{ padding: '8px 0px 8px 5px', marginLeft: '91px' }}></img>
           </div>
         </div>
       </div>
