@@ -3,9 +3,9 @@ import '../Web.css';
 import '../Mobile.css';
 import Header_navber from './Header_navber';
 import Fooder from './Fooder';
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
-import { single_items } from '../api/api';
+import { client_regi } from '../api/api';
 import { AiFillEye } from "react-icons/ai";
 import { BsFillEyeSlashFill } from "react-icons/bs";
 
@@ -13,9 +13,8 @@ import { BsFillEyeSlashFill } from "react-icons/bs";
 
 
 
-
-
 const Registration = () => {
+    let navigate = useNavigate();
     const [showpassone, setShowpassone] = useState(false);
     const [showpasstwo, setShowpasstwo] = useState(false);
 
@@ -32,13 +31,10 @@ const Registration = () => {
 
 
 
-    // useEffect(() => {
-        
-    //         if (names != '' && phone != '' && email != '' && password != '' && conpassword != '' && address != '') {
-    //             setValida(!valida)
-    //         }
-        
-    // }, [100])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
 
 
 
@@ -134,8 +130,25 @@ const Registration = () => {
 
     const onsubmit = () => {
         if (names.trim().length !== 0 && phone.trim().length !== 0 && email.trim().length !== 0 && password.trim().length !== 0 && conpassword.trim().length !== 0 && address.trim().length !== 0) {
-            const data = { 'name': names, 'phone': phone, 'email': email, 'password': password, 'conpassword': conpassword, 'address': address };
-            console.log(data);
+            const data = {
+                'name': names,
+                'phone': phone,
+                'email': email,
+                'password': password,
+                'address': address
+            };
+
+            try {
+                client_regi(data)
+                    .then((res) => {
+                        if (res.status) {
+                            navigate("/login", { login_info: { message: "Successfully" } });
+                        }
+                    })
+            } catch (error) {
+                console.error(error);
+            }
+
         } else {
             alert("please form filup");
         }
@@ -195,9 +208,9 @@ const Registration = () => {
                     </div>
                     <br />
 
-                        <div class="d-flex">                    
-                            <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg btn-success">Register</button>                    
-                        </div>
+                    <div class="d-flex">
+                        <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg btn-success">Register</button>
+                    </div>
                 </div>
             </div>
             <br />

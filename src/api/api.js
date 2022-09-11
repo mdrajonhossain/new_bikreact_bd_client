@@ -130,6 +130,29 @@ const searchitmes = async (event) => {
 }
 
 
+
+const client_regi = async (event) => {
+    
+    try {
+        var regi_data
+        const clientregis = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(event)
+        };
+        await fetch('http://screete.bikretabd.com/admin/client_regi', clientregis)
+            .then(response => response.json())
+            .then((res) => {
+                regi_data = res;
+            });
+        return regi_data;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
  
 
 
@@ -140,7 +163,8 @@ export {
     additems_data,
     add_card_items_local_data,
     single_items,
-    searchitmes
+    searchitmes,
+    client_regi
  };
 
 

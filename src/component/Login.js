@@ -42,6 +42,11 @@ const Login = () => {
     }
 
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+
 
     const passChange = (event) => {
         const { name, value } = event.target;
