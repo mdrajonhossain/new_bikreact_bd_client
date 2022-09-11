@@ -142,7 +142,7 @@ const Registration = () => {
                 client_regi(data)
                     .then((res) => {
                         if (res.status) {
-                            navigate("/login", { login_info: { message: "Successfully" } });
+                            navigate("/login", { state: { message: "Successfully" }});
                         }
                     })
             } catch (error) {
