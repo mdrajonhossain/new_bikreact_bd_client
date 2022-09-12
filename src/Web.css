@@ -631,12 +631,13 @@
 .bar:hover{
   box-shadow: 1px 1px 8px 1px #dcdcdc;
 }
- 
+
+
 .searchbar {
   height: 40px;
   border: none;
   border-radius: 42px;  
-  width: 90%;  
+  width: 85%;  
   font-size: 16px;
   outline: none;
   padding-left: 23px;

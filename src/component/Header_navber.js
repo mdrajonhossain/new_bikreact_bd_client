@@ -131,7 +131,12 @@ const Header_navber = () => {
     if (event.key === 'Enter') {
       searchitems();
     }
+
+    if (event.key === 'Escape') {
+      setSearchdata("");
+    }
   };
+
 
 
 
