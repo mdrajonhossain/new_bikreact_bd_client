@@ -83,6 +83,7 @@ const Login = () => {
                             pass.current.value = '';
                             toast("Client User Login successfully");
                             localStorage.setItem('token', res.totke);
+                            localStorage.setItem("client_user", JSON.stringify(res.data));
                         } else {
                             localStorage.setItem('token', res.totke);
                             phone_number.current.value = '';
@@ -110,7 +111,7 @@ const Login = () => {
             if (login) {
                 navigate('/');
             } else {
-                
+
             }
         }, 100);
     }, [])
