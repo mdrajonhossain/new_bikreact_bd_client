@@ -141,7 +141,8 @@ const Header_navber = () => {
 
 
   const logout = () => {
-    const login = localStorage.removeItem('token');
+    localStorage.removeItem('token');
+    localStorage.removeItem('client_user');
     setIs_login(false)
   }
 
