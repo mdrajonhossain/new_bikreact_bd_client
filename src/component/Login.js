@@ -83,13 +83,11 @@ const Login = () => {
                             phone_number.current.value = '';
                             pass.current.value = '';
                             toast("Client User Login successfully");
-                            localStorage.setItem('token', res.totke);                            
+                            localStorage.setItem('token', res.totke);
                             localStorage.setItem("client_user", JSON.stringify([res.data, phone]));
                             setLogin_sucess(true);
                         } else {
                             localStorage.setItem('token', res.totke);
-                            phone_number.current.value = '';
-                            pass.current.value = '';
                             toast("Not login successfully");
                             setLogin_sucess(false);
                         }
@@ -105,9 +103,6 @@ const Login = () => {
 
 
 
-
-
-
     useEffect(() => {
 
         const login = localStorage.getItem('token');
@@ -117,7 +112,12 @@ const Login = () => {
     }, [login_sucess])
 
 
+    const loginhandleKeyUp = (event: React.KeyboardEvent<HTMLElement>) => {
+        if (event.key === 'Enter') {
+            onesumbit();
+        }
 
+    };
 
 
 
@@ -132,13 +132,13 @@ const Login = () => {
                 <h4 class="text-center mb-5" style={{ color: '#006a50' }}>Welcome to Bikreta account login.</h4>
                 <div class="">
                     <label class="form-label" for="form3Example3cg">Phone Number</label>
-                    <input ref={phone_number} onChange={phoneChange} type="text" id="form3Example3cg" class="form-control form-control-lg" />
+                    <input ref={phone_number} onKeyUp={loginhandleKeyUp} onChange={phoneChange} type="text" id="form3Example3cg" class="form-control form-control-lg" />
                     <span className="phoneerror" style={{ position: 'relative' }}>Invalid... Minimum length 11 letter</span>
                 </div>
 
                 <div class="py-2" style={{ position: 'relative' }}>
                     <label class="form-label" for="form3Example4cg">Password</label>
-                    <input ref={pass} onChange={passChange} type={showpass ? 'text' : 'password'} id="form3Example4cg" class="form-control form-control-lg" />
+                    <input ref={pass} onKeyUp={loginhandleKeyUp} onChange={passChange} type={showpass ? 'text' : 'password'} id="form3Example4cg" class="form-control form-control-lg" />
                     <span className="passlerror" style={{ position: 'relative' }}>Invalid password (Charecture length 8 - 10 letter)</span>
                     <div className="eye" onClick={() => setShowpass(!showpass)}>
                         {showpass ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
