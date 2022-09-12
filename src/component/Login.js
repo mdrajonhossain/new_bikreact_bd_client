@@ -50,9 +50,6 @@ const Login = () => {
     }, [])
 
 
-
-
-
     const passChange = (event) => {
         const { name, value } = event.target;
 
@@ -65,10 +62,6 @@ const Login = () => {
             setPassword('');
         }
     }
-
-
-
-
 
 
     const onesumbit = () => {
@@ -89,7 +82,9 @@ const Login = () => {
                             phone_number.current.value = '';
                             pass.current.value = '';
                             toast("Client User Login successfully");
+                            localStorage.setItem('token', res.totke);
                         } else {
+                            localStorage.setItem('token', res.totke);
                             phone_number.current.value = '';
                             pass.current.value = '';
                             toast("Not login successfully");
@@ -105,6 +100,20 @@ const Login = () => {
     }
 
 
+
+
+
+
+    useEffect(() => {
+        setInterval(function () {
+            const login = localStorage.getItem('token');
+            if (login) {
+                navigate('/');
+            } else {
+                
+            }
+        }, 100);
+    }, [])
 
 
 

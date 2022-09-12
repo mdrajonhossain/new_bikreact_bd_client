@@ -37,6 +37,15 @@ const Registration = () => {
         window.scrollTo(0, 0)
     }, [])
 
+    useEffect(() => {
+        const login = localStorage.getItem('token');
+        if (login) {
+            navigate('/');
+        } else {
+            
+        }
+    }, [100])
+
 
 
 
