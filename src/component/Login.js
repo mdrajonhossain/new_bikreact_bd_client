@@ -128,8 +128,8 @@ const Login = () => {
 
                 <br />
 
-                <div class="d-flex">                    
-                    <button type="button" onClick={() => onesumbit()} class="h3 btn btn-lg" style={{background:'#006a50', color:'white'}}>Login</button>&nbsp;
+                <div class="d-flex">
+                    <button type="button" onClick={() => onesumbit()} class="h3 btn btn-lg" style={{ background: '#006a50', color: 'white' }}>Login</button>&nbsp;
                     <button type="button" class="h3 btn btn-lg btn-danger">Reset</button>
                 </div>
 
