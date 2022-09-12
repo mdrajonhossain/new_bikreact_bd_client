@@ -35,6 +35,7 @@ const Header_navber = () => {
   const [subcatagory_getapi, setSubcatagory_getapi] = useState([]);
 
   const [searchdata, setSearchdata] = useState("");
+  const [is_login, setIs_login] = useState(false);
 
 
 
@@ -99,6 +100,20 @@ const Header_navber = () => {
 
 
 
+  useEffect(() => {
+    setInterval(function () {
+      const login = localStorage.getItem('token');
+      if (login) {
+        setIs_login(true)
+      } else {
+        setIs_login(false)
+      }
+    }, 100);
+  }, [])
+
+
+
+
 
 
   const searchitems = () => {
@@ -110,8 +125,10 @@ const Header_navber = () => {
   }
 
 
-
-  console.log(123, searchdata);
+  const logout = () => {
+    const login = localStorage.removeItem('token');
+    setIs_login(false)
+  }
 
 
   return (
@@ -215,12 +232,21 @@ const Header_navber = () => {
 
           <div className="right_side_menu">
             <div className="web h_menu" style={{ position: 'relative' }}><Link to="/add-card"> Items <MdOutlineShoppingCart size={22} /> <span className='item_counters'>{localdata}</span> </Link></div>
-            <div className="web h_menu myaccount_navber">My Account < FaUserCircle size={24} />
-              <div className="myaccount">
-                <Link to="/registraton"><div className="li_account"><BiPencil /> Registration</div></Link>
-                <Link to="/login"><div className="li_account"><FaLock size={14} /> &nbsp;Login</div></Link>
+
+            {is_login ?
+              <div className="web h_menu myaccount_navber">My Profile < FaUserCircle size={24} />
+                <div className="myaccount">
+                  <div className="li_account" onClick={() => logout()}> &nbsp;Logout</div>
+                </div>
               </div>
-            </div>
+              :
+              <div className="web h_menu myaccount_navber">My Account < FaUserCircle size={24} />
+                <div className="myaccount">
+                  <Link to="/registraton"><div className="li_account"><BiPencil /> Registration</div></Link>
+                  <Link to="/login"><div className="li_account"><FaLock size={14} /> &nbsp;Login</div></Link>
+                </div>
+              </div>
+            }
 
 
 
