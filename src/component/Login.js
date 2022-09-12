@@ -19,6 +19,7 @@ const Login = () => {
     const [showpass, setShowpass] = useState(false);
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
+    const [login_sucess, setLogin_sucess] = useState(false);
 
 
     const phone_number = useRef();
@@ -84,11 +85,13 @@ const Login = () => {
                             toast("Client User Login successfully");
                             localStorage.setItem('token', res.totke);
                             localStorage.setItem("client_user", JSON.stringify(res.data));
+                            setLogin_sucess(true);
                         } else {
                             localStorage.setItem('token', res.totke);
                             phone_number.current.value = '';
                             pass.current.value = '';
                             toast("Not login successfully");
+                            setLogin_sucess(false);
                         }
                     })
             } catch (error) {
@@ -112,7 +115,7 @@ const Login = () => {
             navigate('/');
         }
 
-    }, [100])
+    }, [login_sucess])
 
 
 
