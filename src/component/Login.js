@@ -8,6 +8,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { client_login } from '../api/api';
 import { AiFillEye } from "react-icons/ai";
 import { BsFillEyeSlashFill } from "react-icons/bs";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -20,6 +21,8 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
 
+    const phone_number = useRef();
+    const pass = useRef();
 
     const validatePhoneNumber = (input_str) => {
         var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -82,12 +85,18 @@ const Login = () => {
             try {
                 client_login(datafile)
                     .then((res) => {
-                        if (res) {
-                            console.log(res.status);
+                        if (res.status) {
+                            phone_number.current.value = '';
+                            pass.current.value = '';
+                            toast("Client User Login successfully");
+                        } else {
+                            phone_number.current.value = '';
+                            pass.current.value = '';
+                            toast("Not login successfully");
                         }
                     })
             } catch (error) {
-                console.error(error);
+                console.error(55, error);
             }
 
         } else {
@@ -105,7 +114,7 @@ const Login = () => {
     return (
         <>
             <Header_navber />
-
+            <ToastContainer />
             <br />
 
             <div className='col-12 col-md-5' style={{ margin: '0 auto', background: '#f1fdf1', padding: '30px' }}>
@@ -113,13 +122,13 @@ const Login = () => {
                 <h4 class="text-center mb-5" style={{ color: '#006a50' }}>Welcome to Bikreta account login.</h4>
                 <div class="">
                     <label class="form-label" for="form3Example3cg">Phone Number</label>
-                    <input onChange={phoneChange} type="text" id="form3Example3cg" class="form-control form-control-lg" />
+                    <input ref={phone_number} onChange={phoneChange} type="text" id="form3Example3cg" class="form-control form-control-lg" />
                     <span className="phoneerror" style={{ position: 'relative' }}>Invalid... Minimum length 11 letter</span>
                 </div>
 
                 <div class="py-2" style={{ position: 'relative' }}>
                     <label class="form-label" for="form3Example4cg">Password</label>
-                    <input onChange={passChange} type={showpass ? 'text' : 'password'} id="form3Example4cg" class="form-control form-control-lg" />
+                    <input ref={pass} onChange={passChange} type={showpass ? 'text' : 'password'} id="form3Example4cg" class="form-control form-control-lg" />
                     <span className="passlerror" style={{ position: 'relative' }}>Invalid password (Charecture length 8 - 10 letter)</span>
                     <div className="eye" onClick={() => setShowpass(!showpass)}>
                         {showpass ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
