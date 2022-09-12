@@ -106,15 +106,13 @@ const Login = () => {
 
 
     useEffect(() => {
-        setInterval(function () {
-            const login = localStorage.getItem('token');
-            if (login) {
-                navigate('/');
-            } else {
 
-            }
-        }, 100);
-    }, [])
+        const login = localStorage.getItem('token');
+        if (login) {
+            navigate('/');
+        }
+
+    }, [100])
 
 
 
