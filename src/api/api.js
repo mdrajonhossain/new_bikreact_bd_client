@@ -49,7 +49,7 @@ const sub_cat_data = async (e) => {
 
 
 const additems_data = async (event) => {
-    
+
     try {
         var itemfile
         const itemsdta = {
@@ -72,9 +72,9 @@ const additems_data = async (event) => {
 
 
 
-const add_card_items_local_data = async() => {
+const add_card_items_local_data = async () => {
     try {
-        var add_items = await JSON.parse(localStorage.getItem("add_items") || "[]");        
+        var add_items = await JSON.parse(localStorage.getItem("add_items") || "[]");
         return add_items;
     }
     catch (err) {
@@ -87,7 +87,7 @@ const add_card_items_local_data = async() => {
 
 
 const single_items = async (event) => {
-    
+
     try {
         var itemfile
         const itemsdta = {
@@ -109,7 +109,7 @@ const single_items = async (event) => {
 
 
 const searchitmes = async (event) => {
-    
+
     try {
         var searchdata
         const itemsdta = {
@@ -132,7 +132,7 @@ const searchitmes = async (event) => {
 
 
 const client_regi = async (event) => {
-    
+
     try {
         var regi_data
         const clientregis = {
@@ -153,19 +153,43 @@ const client_regi = async (event) => {
 }
 
 
- 
+
+const client_login = async (event) => {
+
+    try {
+        var log_data
+        const clientlog = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(event)
+        };
+        await fetch('http://screete.bikretabd.com/admin/client_login', clientlog)
+            .then(response => response.json())
+            .then((res) => {
+                log_data = res;
+            });
+        return log_data;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
 
 
-export { 
+
+
+
+export {
     cat_getdata,
     subcat_getdata,
-    sub_cat_data,    
+    sub_cat_data,
     additems_data,
     add_card_items_local_data,
     single_items,
     searchitmes,
-    client_regi
- };
+    client_regi,
+    client_login
+};
 
 
 

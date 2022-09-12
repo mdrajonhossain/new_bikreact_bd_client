@@ -8,9 +8,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { client_regi } from '../api/api';
 import { AiFillEye } from "react-icons/ai";
 import { BsFillEyeSlashFill } from "react-icons/bs";
-
-
-
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Registration = () => {
@@ -21,14 +19,18 @@ const Registration = () => {
     const [names, setNames] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
-
     const [password, setPassword] = useState("");
     const [conpassword, setConpassword] = useState("");
     const [address, setAddress] = useState("");
 
-
     const [valida, setValida] = useState(false);
 
+    const name = useRef();
+    const phone_number = useRef();
+    const email_address = useRef();
+    const pass = useRef();
+    const conpass = useRef();
+    const fulladdress = useRef();
 
 
     useEffect(() => {
@@ -142,7 +144,14 @@ const Registration = () => {
                 client_regi(data)
                     .then((res) => {
                         if (res.status) {
-                            navigate("/login", { state: { message: "successfully" }});
+                            // navigate("/login", { state: { message: "successfully" }});
+                            name.current.value = '';
+                            phone_number.current.value = '';
+                            email_address.current.value = '';
+                            pass.current.value = '';
+                            conpass.current.value = '';
+                            fulladdress.current.value = '';
+                            toast("Registration successfully");
                         }
                     })
             } catch (error) {
@@ -160,32 +169,33 @@ const Registration = () => {
     return (
         <>
             <Header_navber />
+            <ToastContainer />
             <br />
             <div className='col-12 col-md-5' style={{ margin: '0 auto', background: '#f1fdf1', padding: '30px' }}>
                 <div style={{ width: '100%' }}>
                     <h4 class="text-center mb-5" style={{ color: '#006a50' }}>Create your Bikreta Account</h4>
                     <div class="py-2">
                         <label class="form-label" for="form3Example1cg">Name</label>
-                        <input type="text" onChange={nameChange} id="form3Example1cg" class="form-control form-control-lg" />
+                        <input type="text" ref={name} onChange={nameChange} id="form3Example1cg" class="form-control form-control-lg" />
                         <span className="nameerror" style={{ position: 'relative' }}>Invalid... Minimum length 25 letter</span>
                     </div>
 
                     <div class="py-2">
                         <label class="form-label" for="form3Example3cg">Phone Number</label>
-                        <input type="text" onChange={phoneChange} id="form3Example3cg" class="form-control form-control-lg" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
+                        <input type="text" ref={phone_number} onChange={phoneChange} id="form3Example3cg" class="form-control form-control-lg" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
                         <span className="phoneerror" style={{ position: 'relative' }}>Invalid... Minimum length 11 letter</span>
                     </div>
 
                     <div class="py-2">
                         <label class="form-label" for="form3Example3cg">Email</label>
-                        <input type="email" onChange={emailChange} id="form3Example3cg" class="form-control form-control-lg" />
+                        <input type="email" ref={email_address} onChange={emailChange} id="form3Example3cg" class="form-control form-control-lg" />
                         <span className="emailerror" style={{ position: 'relative' }}>Invalid email address</span>
                     </div>
 
 
                     <div class="py-2" style={{ position: 'relative' }}>
                         <label class="form-label" for="form3Example4cdg">Password</label>
-                        <input onChange={passChange} type={showpassone ? 'text' : 'password'} class="form-control form-control-lg" />
+                        <input ref={pass} onChange={passChange} type={showpassone ? 'text' : 'password'} class="form-control form-control-lg" />
                         <span className="passlerror" style={{ position: 'relative' }}>Invalid password (Charecture length 8 - 10 letter)</span>
                         <div className="eye" onClick={() => setShowpassone(!showpassone)}>
                             {showpassone ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
@@ -194,7 +204,7 @@ const Registration = () => {
 
                     <div class="py-2" style={{ position: 'relative' }}>
                         <label class="form-label" for="form3Example4cdg">Confirm password</label>
-                        <input onChange={confpassChange} type={showpasstwo ? 'text' : 'password'} class="form-control form-control-lg" />
+                        <input ref={conpass} onChange={confpassChange} type={showpasstwo ? 'text' : 'password'} class="form-control form-control-lg" />
                         <span className="conpasslerror" style={{ position: 'relative' }}>Invalid password (Charecture length 8 - 10 letter)</span>
                         <div className="eye" onClick={() => setShowpasstwo(!showpasstwo)}>
                             {showpasstwo ? <BsFillEyeSlashFill size={20} /> : <AiFillEye size={20} />}
@@ -203,14 +213,16 @@ const Registration = () => {
 
                     <div class="py-2">
                         <label class="form-label" for="form3Example3cg">Address</label>
-                        <textarea onChange={addressChange} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea ref={fulladdress} onChange={addressChange} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         <span className="addresslerror" style={{ position: 'relative' }}>Invalid.. minimum 42 letter address</span>
                     </div>
                     <br />
 
                     <div class="d-flex">
-                        <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg btn-success">Register</button>
+                        <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg" style={{background:'#006a50', color:'white'}}>Register</button>
                     </div>
+                    <span style={{ color: 'red', fontSize: '14px' }}>Already have login and password ?</span>
+                    <Link to="/login"><span style={{ color: '#006a50', fontSize: '16px', cursor: 'pointer' }}> Login </span></Link>
                 </div>
             </div>
             <br />

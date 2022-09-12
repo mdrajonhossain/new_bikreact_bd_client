@@ -5,10 +5,10 @@ import Header_navber from './Header_navber';
 import Fooder from './Fooder';
 import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
-import { single_items } from '../api/api';
+import { client_login } from '../api/api';
 import { AiFillEye } from "react-icons/ai";
 import { BsFillEyeSlashFill } from "react-icons/bs";
-import { ToastContainer, toast } from 'react-toastify';
+
 
 
 
@@ -31,10 +31,10 @@ const Login = () => {
         var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
         const testvalied = validatePhoneNumber(value);
-        if (value.trim().length != 11) {
+        if (value.trim().length != 12) {
             if (testvalied) {
                 event.target.classList.remove('error');
-                setPhone(value);
+                setPhone(value.trim());
             } else {
                 event.target.classList.add('error');
                 setPhone('');
@@ -42,35 +42,9 @@ const Login = () => {
         }
     }
 
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
-
-
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
-
-    useEffect(() => {
-        try {
-            if (location.state.message === "successfully") {
-                toast("Registration successfully");
-                navigate("/login");
-            }
-        }
-        catch (err) {
-            console.log(err)
-        }
-
-    }, [])
-
-
-
-
 
 
 
@@ -95,14 +69,36 @@ const Login = () => {
 
 
     const onesumbit = () => {
-
+        const datafile = {
+            'phone': phone,
+            'password': password
+        };
+        console.log(datafile);
         if (phone.trim().length !== 0 && password.trim().length !== 0) {
-            const data = { 'phone': phone, 'password': password };
-            console.log(data);
+            const datafile = {
+                'phone': phone,
+                'password': password
+            };
+            try {
+                client_login(datafile)
+                    .then((res) => {
+                        if (res) {
+                            console.log(res.status);
+                        }
+                    })
+            } catch (error) {
+                console.error(error);
+            }
+
         } else {
-            alert("please form filup s");
+            alert("please form filup");
         }
     }
+
+
+
+
+
 
 
 
@@ -111,14 +107,13 @@ const Login = () => {
             <Header_navber />
 
             <br />
-            <ToastContainer />
 
             <div className='col-12 col-md-5' style={{ margin: '0 auto', background: '#f1fdf1', padding: '30px' }}>
 
                 <h4 class="text-center mb-5" style={{ color: '#006a50' }}>Welcome to Bikreta account login.</h4>
                 <div class="">
                     <label class="form-label" for="form3Example3cg">Phone Number</label>
-                    <input onChange={phoneChange} type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                    <input onChange={phoneChange} type="text" id="form3Example3cg" class="form-control form-control-lg" />
                     <span className="phoneerror" style={{ position: 'relative' }}>Invalid... Minimum length 11 letter</span>
                 </div>
 
@@ -133,8 +128,8 @@ const Login = () => {
 
                 <br />
 
-                <div class="d-flex">
-                    <button type="button" onClick={() => onesumbit()} class="h3 btn btn-lg btn-success">Login</button> &nbsp;
+                <div class="d-flex">                    
+                    <button type="button" onClick={() => onesumbit()} class="h3 btn btn-lg" style={{background:'#006a50', color:'white'}}>Login</button>&nbsp;
                     <button type="button" class="h3 btn btn-lg btn-danger">Reset</button>
                 </div>
 
