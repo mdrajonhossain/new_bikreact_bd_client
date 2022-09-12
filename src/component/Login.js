@@ -3,18 +3,18 @@ import '../Web.css';
 import '../Mobile.css';
 import Header_navber from './Header_navber';
 import Fooder from './Fooder';
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
 import { single_items } from '../api/api';
 import { AiFillEye } from "react-icons/ai";
 import { BsFillEyeSlashFill } from "react-icons/bs";
-
-
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
 const Login = () => {
     const location = useLocation();
+    let navigate = useNavigate();
     const [showpass, setShowpass] = useState(false);
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
@@ -55,8 +55,24 @@ const Login = () => {
     }, [])
 
 
+    useEffect(() => {
+        try {
+            if (location.state.message === "successfully") {
+                toast("Registration successfully");
+                navigate("/login");
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
 
-    
+    }, [])
+
+
+
+
+
+
 
 
 
@@ -76,6 +92,8 @@ const Login = () => {
 
 
 
+
+
     const onesumbit = () => {
 
         if (phone.trim().length !== 0 && password.trim().length !== 0) {
@@ -86,11 +104,16 @@ const Login = () => {
         }
     }
 
+
+
+
+
     return (
         <>
             <Header_navber />
 
             <br />
+            <ToastContainer />
 
             <div className='col-12 col-md-5' style={{ margin: '0 auto', background: '#f1fdf1', padding: '30px' }}>
 
@@ -120,7 +143,7 @@ const Login = () => {
 
             </div>
 
-         
+
 
 
             <br />
