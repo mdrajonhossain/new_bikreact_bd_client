@@ -125,6 +125,16 @@ const Header_navber = () => {
   }
 
 
+
+
+  const handleKeyUp = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (event.key === 'Enter') {
+      searchitems();
+    }
+  };
+
+
+
   const logout = () => {
     const login = localStorage.removeItem('token');
     setIs_login(false)
@@ -158,7 +168,7 @@ const Header_navber = () => {
 
           <div className='col-md-5 pt-2'>
             <div class="bar">
-              <input class="searchbar" placeholder="Search by items in Bikreta" value={searchdata} onChange={e => setSearchdata(e.target.value)} type="text" title="Search" />
+              <input class="searchbar" placeholder="Search by items in Bikreta" onKeyUp={handleKeyUp} value={searchdata} onChange={e => setSearchdata(e.target.value)} type="text" title="Search" />
               <AiOutlineSearch size={35} className='search_icon' onClick={() => searchitems()} />
             </div>
           </div>
