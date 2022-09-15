@@ -1,8 +1,18 @@
-
-
+import { get_user_location } from '../api/api';
+import React, { useState, useEffect } from 'react';
 
 const Fooder = () => {
+    const [location, setLocation] = useState([]);
 
+
+
+    useEffect(() => {
+
+        get_user_location()
+            .then((res) => {
+                setLocation(res);
+            })
+    }, [])
 
 
     return (
@@ -45,14 +55,15 @@ const Fooder = () => {
                             <div class="col-xl-4 col-lg-4 mb-50">
                                 <div class="footer-widget">
                                     <div class="footer-logo">
-                                        <a href="/">                                            
-                                            <img src={require("./fooderlogo.png")} 
-                                             class="img-fluid" alt="logo" />
-                                            </a>
+                                        <a href="/">
+                                            <img src={require("./fooderlogo.png")}
+                                                class="img-fluid" alt="logo" />
+                                        </a>
                                     </div>
                                     <div class="footer-text">
-                                        <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
-                                            elit,Lorem ipsum dolor sit amet.</p>
+                                        <p>
+                                            My Location : {location.city}, {location.stateProv}, {location.countryName}
+                                        </p>
                                     </div>
                                     <div class="footer-social-icon">
                                         <span>Follow us</span>
@@ -88,7 +99,7 @@ const Fooder = () => {
                                     </div>
                                     <div class="footer-text mb-25">
                                         <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -22,16 +22,13 @@ const Registration = () => {
     const [password, setPassword] = useState("");
     const [conpassword, setConpassword] = useState("");
     const [address, setAddress] = useState("");
-
     const [valida, setValida] = useState(false);
-
     const name = useRef();
     const phone_number = useRef();
     const email_address = useRef();
     const pass = useRef();
     const conpass = useRef();
     const fulladdress = useRef();
-
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -44,10 +41,6 @@ const Registration = () => {
         }
     }, [100])
 
-
-
-
-
     const nameChange = (event) => {
         const { name, value } = event.target;
 
@@ -59,7 +52,6 @@ const Registration = () => {
             setNames(value);
         }
     }
-
 
     const validatePhoneNumber = (input_str) => {
         var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -170,9 +162,6 @@ const Registration = () => {
         }
     }
 
-
-
-
     return (
         <>
             <Header_navber />
@@ -226,7 +215,7 @@ const Registration = () => {
                     <br />
 
                     <div class="d-flex">
-                        <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg" style={{background:'#006a50', color:'white'}}>Register</button>
+                        <button type="button" onClick={() => onsubmit()} class="h3 btn btn-lg" style={{ background: '#006a50', color: 'white' }}>Register</button>
                     </div>
                     <span style={{ color: 'red', fontSize: '14px' }}>Already have login and password ?</span>
                     <Link to="/login"><span style={{ color: '#006a50', fontSize: '16px', cursor: 'pointer' }}> Login </span></Link>

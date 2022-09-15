@@ -11,7 +11,7 @@ const cat_getdata = async () => {
     }
 }
 
- 
+
 
 const subcat_getdata = async () => {
     try {
@@ -178,6 +178,19 @@ const client_login = async (event) => {
 
 
 
+const get_user_location = async () => {
+    try {
+        const res = await axios.get('https://api.db-ip.com/v2/free/self')
+        return res.data;
+    }
+    catch (err) {
+        console.error("wrong", err);
+    }
+}
+
+
+
+
 
 export {
     cat_getdata,
@@ -188,7 +201,8 @@ export {
     single_items,
     searchitmes,
     client_regi,
-    client_login
+    client_login,
+    get_user_location
 };
 
 

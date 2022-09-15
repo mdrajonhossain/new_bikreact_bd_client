@@ -11,8 +11,6 @@ import { BsFillEyeSlashFill } from "react-icons/bs";
 import { ToastContainer, toast } from 'react-toastify';
 
 
-
-
 const Login = () => {
     const location = useLocation();
     let navigate = useNavigate();
@@ -20,7 +18,6 @@ const Login = () => {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [login_sucess, setLogin_sucess] = useState(false);
-
 
     const phone_number = useRef();
     const pass = useRef();
@@ -50,10 +47,8 @@ const Login = () => {
         window.scrollTo(0, 0)
     }, [])
 
-
     const passChange = (event) => {
         const { name, value } = event.target;
-
 
         if (value.trim().length > 7 && value.trim().length < 11) {
             event.target.classList.remove('error');
@@ -63,7 +58,6 @@ const Login = () => {
             setPassword('');
         }
     }
-
 
     const onesumbit = () => {
         const datafile = {
@@ -102,16 +96,12 @@ const Login = () => {
         }
     }
 
- 
 
     const loginhandleKeyUp = (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === 'Enter') {
             onesumbit();
         }
-
     };
-
-
 
     useEffect(() => {
         const login = localStorage.getItem('token');
@@ -119,8 +109,6 @@ const Login = () => {
             navigate('/');
         }
     }, [100])
-
-
 
 
     return (
@@ -148,18 +136,11 @@ const Login = () => {
                 </div>
 
                 <br />
-
                 <div class="d-flex">
                     <button type="button" onClick={() => onesumbit()} class="h3 btn btn-lg" style={{ background: '#006a50', color: 'white' }}>Login</button>&nbsp;
                     <button type="button" class="h3 btn btn-lg btn-danger">Reset</button>
                 </div>
-
-
             </div>
-
-
-
-
             <br />
             <Fooder />
         </>
