@@ -86,6 +86,7 @@ const Login = () => {
                             localStorage.setItem('token', res.totke);
                             localStorage.setItem("client_user", JSON.stringify([res.data, phone]));
                             setLogin_sucess(true);
+                            navigate('/');
                         } else {
                             localStorage.setItem('token', res.totke);
                             toast("Not login successfully");
@@ -101,16 +102,7 @@ const Login = () => {
         }
     }
 
-
-
-    useEffect(() => {
-
-        const login = localStorage.getItem('token');
-        if (login) {
-            navigate('/');
-        }
-    }, [login_sucess])
-
+ 
 
     const loginhandleKeyUp = (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === 'Enter') {
@@ -118,6 +110,16 @@ const Login = () => {
         }
 
     };
+
+
+
+    useEffect(() => {
+        const login = localStorage.getItem('token');
+        if (login) {
+            navigate('/');
+        }
+    }, [100])
+
 
 
 

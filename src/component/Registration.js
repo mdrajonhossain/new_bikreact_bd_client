@@ -41,8 +41,6 @@ const Registration = () => {
         const login = localStorage.getItem('token');
         if (login) {
             navigate('/');
-        } else {
-            
         }
     }, [100])
 
