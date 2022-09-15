@@ -14,10 +14,17 @@ import { AiOutlineCaretDown } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { BiPhoneCall } from "react-icons/bi";
 import { FaLock } from "react-icons/fa";
-
 import { BiPencil } from "react-icons/bi";
-
 import { AiOutlineSearch } from "react-icons/ai";
+import { FcCellPhone } from "react-icons/fc";
+import { FcInfo } from "react-icons/fc";
+import { CgLogOut } from "react-icons/cg";
+
+
+
+
+
+
 
 
 
@@ -250,9 +257,11 @@ const Header_navber = () => {
             <div className="web h_menu" style={{ position: 'relative' }}><Link to="/add-card"> Items <MdOutlineShoppingCart size={22} /> <span className='item_counters'>{localdata}</span> </Link></div>
 
             {is_login ?
-              <div className="web h_menu myaccount_navber">My Profile < FaUserCircle size={24} />
+              <div className="web h_menu myaccount_navber">My Profile &nbsp;  < FaUserCircle size={24} />
                 <div className="myaccount">
-                  <div className="li_account" onClick={() => logout()}> &nbsp;Logout</div>
+                  <div className="li_account"> <FcCellPhone size={19}/> 01734802914</div>                  
+                  <div className="li_account" ><FcInfo size={19} /> &nbsp;My Info</div>                  
+                  <div className="li_account" onClick={() => logout()}> <CgLogOut  size={19} />&nbsp;Logout</div>
                 </div>
               </div>
               :
