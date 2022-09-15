@@ -19,6 +19,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { FcCellPhone } from "react-icons/fc";
 import { FcInfo } from "react-icons/fc";
 import { CgLogOut } from "react-icons/cg";
+import { FaUserTie } from "react-icons/fa";
 
 
 
@@ -43,6 +44,7 @@ const Header_navber = () => {
 
   const [searchdata, setSearchdata] = useState("");
   const [is_login, setIs_login] = useState(false);
+  const [phone, setPhone] = useState();
 
 
 
@@ -76,6 +78,12 @@ const Header_navber = () => {
       .then((res) => {
         setDropcat(res.cat_data);
       })
+  }, [])
+
+
+  useEffect(() => {
+    var phone = JSON.parse(localStorage.getItem("client_user") || "[]");
+    setPhone(phone[1])
   }, [])
 
 
@@ -150,6 +158,7 @@ const Header_navber = () => {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('client_user');
+    localStorage.removeItem('phone');
     setIs_login(false)
   }
 
@@ -257,11 +266,11 @@ const Header_navber = () => {
             <div className="web h_menu" style={{ position: 'relative' }}><Link to="/add-card"> Items <MdOutlineShoppingCart size={22} /> <span className='item_counters'>{localdata}</span> </Link></div>
 
             {is_login ?
-              <div className="web h_menu myaccount_navber">My Profile &nbsp;  < FaUserCircle size={24} />
+              <div className="web h_menu myaccount_navber">My Profile &nbsp;  < FaUserTie size={22} />
                 <div className="myaccount">
-                  <div className="li_account"> <FcCellPhone size={19}/> 01734802914</div>                  
-                  <div className="li_account" ><FcInfo size={19} /> &nbsp;My Info</div>                  
-                  <div className="li_account" onClick={() => logout()}> <CgLogOut  size={19} />&nbsp;Logout</div>
+                  <div className="li_account"> <FcCellPhone size={19} /> {phone}</div>
+                  <div className="li_account" ><FcInfo size={19} /> &nbsp;My Info</div>
+                  <div className="li_account" onClick={() => logout()}> <CgLogOut size={19} />&nbsp;Logout</div>
                 </div>
               </div>
               :

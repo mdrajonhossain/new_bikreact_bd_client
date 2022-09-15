@@ -78,7 +78,7 @@ const Login = () => {
                             pass.current.value = '';
                             toast("Client User Login successfully");
                             localStorage.setItem('token', res.totke);
-                            localStorage.setItem("client_user", JSON.stringify([res.data, phone]));
+                            localStorage.setItem("client_user", JSON.stringify([res.data, phone]));                            
                             setLogin_sucess(true);
                             navigate('/');
                         } else {

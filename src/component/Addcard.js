@@ -8,12 +8,15 @@ import { additems_data } from '../api/api';
 import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { add_card_items_local_data } from '../api/api';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 
 const Addcard = () => {
     const [loca_adddata, setLoca_adddata] = useState([]);
     const [quntitycounter, setQuntitycounter] = useState();
-    
+    const [login, setLogin] = useState(false);
+    const [show, setShow] = useState(false);
+
 
 
     useEffect(() => {
@@ -49,7 +52,7 @@ const Addcard = () => {
             var data = JSON.parse(localStorage.getItem("add_items") || "[]");
             var index = data.findIndex(x => x.item_name === e[0].item_name);
 
-            if (data[index].qnt > 1) {                
+            if (data[index].qnt > 1) {
                 data[index].qnt = data[index].qnt - 1;
             }
             localStorage.setItem("add_items", JSON.stringify(data));
@@ -57,7 +60,29 @@ const Addcard = () => {
         }
     }
 
- 
+
+
+
+    useEffect(() => {
+        setInterval(function () {
+            var phone = JSON.parse(localStorage.getItem("client_user") || "[]");
+            if (phone[1]) {
+                setLogin(true)
+            } else {
+                setLogin(false)
+            }
+        }, 100);
+    }, [])
+
+
+    const checkout = () => {
+        alert("adsfasdf");
+    }
+
+
+
+
+
 
     return (
         <>
@@ -67,7 +92,7 @@ const Addcard = () => {
                 <div className="row">
 
                     <div className="col-md-4 col-12">
-                        asdf
+
                     </div>
 
                     <div className="col-md-8 col-12">
@@ -106,19 +131,49 @@ const Addcard = () => {
                                                 </>
                                             )
                                         })}
-                                    <tr>
-                                        <td colspan="4" align="right">Total = </td>
-                                        <td>1200 Tk</td>
-                                    </tr>
-
-
+                                    <br />
                                 </tbody>
                             </Table>
                             : <div className='text-center text-danger py-3'>No addcard data </div>}
+
+
+                        <OutsideClickHandler onOutsideClick={() => setShow(false)}>
+                            <center>
+                                {!login ?
+                                    <Link to="/login"><button type="button" class="add-add-to-checkout">CheckOut</button></Link>
+                                    :
+                                    <button type="button" onClick={() => setShow(!show)} class="add-add-to-checkout">CheckOut</button>
+                                }
+                            </center>
+                            {show ?
+
+                                <div className="Order_now">
+                                    <div className='header'>
+                                        <div style={{padding:'15px', color:'white', fontSize:'18px'}}>Order Now</div>
+                                        <div className='close' onClick={() => setShow(!show)}>&#10006;</div>
+                                    </div>
+                                </div>
+
+
+
+
+                                : ' '}
+                        </OutsideClickHandler>
+
+
+
                     </div>
                 </div>
             </div>
             <br />
+
+
+
+
+
+
+
+
             <Fooder />
         </>
     )
