@@ -88,11 +88,11 @@ const Addcard = () => {
         <>
             <Header_navber />
             <br />
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
 
                     <div className="col-md-4 col-12">
-
+                        asdfasdf
                     </div>
 
                     <div className="col-md-8 col-12">
@@ -139,22 +139,20 @@ const Addcard = () => {
 
                         <OutsideClickHandler onOutsideClick={() => setShow(false)}>
                             <center>
-                                {!login ?
-                                    <Link to="/login"><button type="button" class="add-add-to-checkout">CheckOut</button></Link>
-                                    :
-                                    <button type="button" onClick={() => setShow(!show)} class="add-add-to-checkout">CheckOut</button>
-                                }
+                                {loca_adddata.length != 0 ?
+                                    !login ?
+                                        <Link to="/login"><button type="button" class="add-add-to-checkout">CheckOut</button></Link>
+                                        :
+                                        <button type="button" onClick={() => setShow(!show)} class="add-add-to-checkout">CheckOut</button>
+                                    : ''}
                             </center>
                             {show ?
-
                                 <div className="Order_now">
                                     <div className='header'>
-                                        <div style={{padding:'15px', color:'white', fontSize:'18px'}}>Order Now</div>
+                                        <div style={{ padding: '15px', color: 'white', fontSize: '18px' }}>Order Now</div>
                                         <div className='close' onClick={() => setShow(!show)}>&#10006;</div>
                                     </div>
                                 </div>
-
-
 
 
                                 : ' '}
