@@ -56,7 +56,7 @@ const Single_view_items = () => {
 
         if (add_items.length === 0) {
             var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
-            const items = [{ "item_name": e.item_name, "img": e.fontimg, "price": e.discount_price, "qnt": 1 }];
+            const items = [{ "item_name": e.item_name, "img": e.fontimg, "price": e.discount_price, "qnt": 1, items_id:e.id }];
             localStorage.setItem("add_items", JSON.stringify(items));
         } else {
             var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
@@ -65,7 +65,7 @@ const Single_view_items = () => {
             })
             if (mach.length === 0) {
                 var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
-                add_items.push({ "item_name": e.item_name, "img": e.fontimg, "price": e.discount_price, "qnt": 1 });
+                add_items.push({ "item_name": e.item_name, "img": e.fontimg, "price": e.discount_price, "qnt": 1, items_id:e.id });
                 localStorage.setItem("add_items", JSON.stringify(add_items));
             } else {
                 var add_items = JSON.parse(localStorage.getItem("add_items") || "[]");
