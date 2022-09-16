@@ -15,7 +15,7 @@ const Addcard = () => {
     const [loca_adddata, setLoca_adddata] = useState([]);
     const [quntitycounter, setQuntitycounter] = useState();
     const [login, setLogin] = useState(false);
-    
+
     const [ordershow, setOrdershow] = useState(false);
 
 
@@ -76,14 +76,7 @@ const Addcard = () => {
     }, [])
 
 
-    const checkout = () => {
-        alert("adsfasdf");
-    }
-
-
-
-
-
+ 
 
     return (
         <>
@@ -93,7 +86,7 @@ const Addcard = () => {
                 <div className="row">
 
                     <div className="col-md-4 col-12">
-                        asdfasdf
+                        Coming soon Items List
                     </div>
 
                     <div className="col-md-8 col-12">
@@ -147,7 +140,7 @@ const Addcard = () => {
                                         <button type="button" onClick={() => setOrdershow(true)} class="add-add-to-checkout">CheckOut</button>
                                     : ''}
                             </center>
-                            {ordershow ?                                 
+                            {ordershow ?
                                 <Order_now setOrdershow={setOrdershow} />
                                 : ' '}
                         </OutsideClickHandler>
