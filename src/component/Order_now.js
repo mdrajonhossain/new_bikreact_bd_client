@@ -2,12 +2,24 @@ import '../App.css';
 import '../Web.css';
 import '../Mobile.css';
 import Table from 'react-bootstrap/Table';
+import { add_card_items_local_data } from '../api/api';
+import React, { useState, useEffect } from 'react';
 
 
 
 const Order_now = (props) => {
+  const [loca_adddata, setLoca_adddata] = useState([]);
 
 
+
+  useEffect(() => {
+    setInterval(function () {
+      add_card_items_local_data()
+        .then((res) => {
+          setLoca_adddata(res);
+        })
+    }, 100);
+  }, [])
 
 
   return (
@@ -20,26 +32,31 @@ const Order_now = (props) => {
       <div className='order_body'>
         <div className='container'>
           <div className='row'>
-            
-            <div className='col-md-6'></div>
-            
+
+            <div className='col-md-6'>
+            <button type="button" class="add-add-to-checkout">Order</button>
+            </div>
+
             <div className='col-md-6'>
               <Table striped>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                  </tr>
-                </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
+                  {
+
+                    loca_adddata.map((data, index) => {
+                      return (
+                        <>
+                          <tr>
+                            <td>
+                              <img width="50" height="40" src={"http://screete.bikretabd.com/items_image_file/" + data.img} />
+                            </td>
+                            <td>{data.item_name}</td>
+                            <td>{data.qnt}</td>
+                            <td>{data.qnt * data.price}</td>
+                          </tr>
+                        </>
+                      )
+                    })}
+                  <br />
                 </tbody>
               </Table>
             </div>
