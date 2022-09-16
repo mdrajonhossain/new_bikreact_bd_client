@@ -3,6 +3,7 @@ import '../Web.css';
 import '../Mobile.css';
 import Header_navber from './Header_navber';
 import Fooder from './Fooder';
+import Order_now from './Order_now';
 import { useParams, Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
 import { single_items } from '../api/api';
@@ -11,8 +12,8 @@ import { GrDeliver } from "react-icons/gr";
 import { GiPayMoney } from "react-icons/gi";
 import { RiMapPinTimeLine } from "react-icons/ri";
 import { AiOutlineFileProtect } from "react-icons/ai";
-
 import { add_card_items_local_data } from '../api/api';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 
 
@@ -22,8 +23,8 @@ const Single_view_items = () => {
     const srcRef = useRef(null);
     const { id } = useParams();
     const [single_items_data, setSingle_items_data] = useState([]);
-
     const [getitemscounter, setGetitemscounter] = useState(0);
+    const [ordershow, setOrdershow] = useState(false);
 
 
 
@@ -178,7 +179,12 @@ const Single_view_items = () => {
                                             {!login ?
                                                 <Link to="/login"><button type="button" class="add-add-to-checkout">CheckOut</button></Link>
                                                 :
-                                                <button type="button" class="add-add-to-checkout">CheckOut</button>
+                                                <OutsideClickHandler onOutsideClick={() => setOrdershow(false)}>
+                                                    <button type="button" onClick={() => setOrdershow(!ordershow)} class="add-add-to-checkout">CheckOut</button>
+                                                    {ordershow ? 
+                                                    <Order_now setOrdershow={setOrdershow} />
+                                                    : ""}
+                                                </OutsideClickHandler>                                                
                                             }
                                         </>
                                             :

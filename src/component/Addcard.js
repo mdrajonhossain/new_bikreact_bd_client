@@ -9,13 +9,14 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { add_card_items_local_data } from '../api/api';
 import OutsideClickHandler from 'react-outside-click-handler';
-
+import Order_now from './Order_now';
 
 const Addcard = () => {
     const [loca_adddata, setLoca_adddata] = useState([]);
     const [quntitycounter, setQuntitycounter] = useState();
     const [login, setLogin] = useState(false);
-    const [show, setShow] = useState(false);
+    
+    const [ordershow, setOrdershow] = useState(false);
 
 
 
@@ -137,24 +138,17 @@ const Addcard = () => {
                             : <div className='text-center text-danger py-3'>No addcard data </div>}
 
 
-                        <OutsideClickHandler onOutsideClick={() => setShow(false)}>
+                        <OutsideClickHandler onOutsideClick={() => setOrdershow(false)}>
                             <center>
                                 {loca_adddata.length != 0 ?
                                     !login ?
                                         <Link to="/login"><button type="button" class="add-add-to-checkout">CheckOut</button></Link>
                                         :
-                                        <button type="button" onClick={() => setShow(!show)} class="add-add-to-checkout">CheckOut</button>
+                                        <button type="button" onClick={() => setOrdershow(true)} class="add-add-to-checkout">CheckOut</button>
                                     : ''}
                             </center>
-                            {show ?
-                                <div className="Order_now">
-                                    <div className='header'>
-                                        <div style={{ padding: '15px', color: 'white', fontSize: '18px' }}>Order Now</div>
-                                        <div className='close' onClick={() => setShow(!show)}>&#10006;</div>
-                                    </div>
-                                </div>
-
-
+                            {ordershow ?                                 
+                                <Order_now setOrdershow={setOrdershow} />
                                 : ' '}
                         </OutsideClickHandler>
 
