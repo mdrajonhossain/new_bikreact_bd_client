@@ -34,7 +34,16 @@ const Order_now = (props) => {
           <div className='row'>
 
             <div className='col-md-6'>
-            <button type="button" class="add-add-to-checkout">Order</button>
+              <button type="button" class="add-add-to-checkout">Order</button>
+
+              <Table striped>
+                
+                  <tr>
+                    <td>sadfasdf</td>
+                    <td>sadfasdf</td>
+                  </tr>
+              
+              </Table>
             </div>
 
             <div className='col-md-6'>
