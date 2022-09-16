@@ -90,6 +90,20 @@ const Addcard = () => {
                     </div>
 
                     <div className="col-md-8 col-12">
+                    <OutsideClickHandler onOutsideClick={() => setOrdershow(false)}>
+                            <center>
+                                {loca_adddata.length != 0 ?
+                                    !login ?
+                                        <Link to="/login"><button type="button" class="add-add-to-checkout">CheckOut</button></Link>
+                                        :
+                                        <button type="button" onClick={() => setOrdershow(true)} class="add-add-to-checkout">CheckOut</button>
+                                    : ''}
+                            </center>
+                            {ordershow ?
+                                <Order_now setOrdershow={setOrdershow} />
+                                : ' '}
+                        </OutsideClickHandler>
+                        <br/>
                         {loca_adddata.length != 0 ?
                             <Table striped bordered hover>
                                 <thead>
@@ -131,7 +145,7 @@ const Addcard = () => {
                             : <div className='text-center text-danger py-3'>No addcard data </div>}
 
 
-                        <OutsideClickHandler onOutsideClick={() => setOrdershow(false)}>
+                        {/* <OutsideClickHandler onOutsideClick={() => setOrdershow(false)}>
                             <center>
                                 {loca_adddata.length != 0 ?
                                     !login ?
@@ -143,7 +157,7 @@ const Addcard = () => {
                             {ordershow ?
                                 <Order_now setOrdershow={setOrdershow} />
                                 : ' '}
-                        </OutsideClickHandler>
+                        </OutsideClickHandler> */}
 
 
 
