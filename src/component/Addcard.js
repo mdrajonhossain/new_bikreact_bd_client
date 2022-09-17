@@ -234,7 +234,7 @@ const Addcard = () => {
                                     <br />
                                 </tbody>
                             </Table>
-                            : <div className='text-center text-danger py-3'>No addcard data </div>}
+                            : <div className='text-center text-danger py-3'>Not fount items </div>}
 
 
                         {/* <OutsideClickHandler onOutsideClick={() => setOrdershow(false)}>

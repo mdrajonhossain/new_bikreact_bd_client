@@ -78,8 +78,8 @@ const Login = () => {
                             pass.current.value = '';
                             toast("Client User Login successfully");
                             localStorage.setItem('token', res.totke);
-                            localStorage.setItem("client_user", JSON.stringify([res.data, phone]));                            
-                            setLogin_sucess(true);                            
+                            localStorage.setItem("client_user", JSON.stringify([res.data, phone]));
+                            setLogin_sucess(true);
                             navigate(-1)
                         } else {
                             localStorage.setItem('token', res.totke);
@@ -140,6 +140,8 @@ const Login = () => {
                     <button type="button" onClick={() => onesumbit()} class="h3 btn btn-lg" style={{ background: '#006a50', color: 'white' }}>Login</button>&nbsp;
                     <button type="button" class="h3 btn btn-lg btn-danger">Reset</button>
                 </div>
+                <span style={{ color: 'red', fontSize: '14px' }}>If there is no account</span>
+                <Link to="/registraton"><span style={{ color: '#006a50', fontSize: '16px', cursor: 'pointer' }}> Registraton </span></Link>
             </div>
             <br />
             <Fooder />
