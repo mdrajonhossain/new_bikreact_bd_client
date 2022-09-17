@@ -22,6 +22,10 @@ const Order_now = (props) => {
   }, [])
 
 
+  const Orderaction = ()=>{
+    alert("Please Coming Soon Products Order")
+  }
+
   return (
     <div className="Order_now">
       <div className='header'>
@@ -34,15 +38,9 @@ const Order_now = (props) => {
           <div className='row'>
 
             <div className='col-md-6'>
-              <button type="button" class="add-add-to-checkout">Order</button>
+              <button type="button" onClick={()=>Orderaction()}class="add-add-to-checkout">Order</button>
               <br />
-              <br />
-              <Table striped>
-                <tr>
-                  <td>sadfasdf</td>
-                  <td>sadfasdf</td>
-                </tr>
-              </Table>
+              <br />             
             </div>
 
             <div className='col-md-6'>
