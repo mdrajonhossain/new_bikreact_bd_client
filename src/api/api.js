@@ -24,6 +24,17 @@ const subcat_getdata = async () => {
 }
 
 
+const slider = async () => {
+    try {
+        const res = await axios.get('http://screete.bikretabd.com/admin/slider_get_client')
+        return res.data;
+    }
+    catch (err) {
+        console.error("wrong", err);
+    }
+}
+
+
 
 
 const sub_cat_data = async (e) => {
@@ -189,6 +200,17 @@ const get_user_location = async () => {
 }
 
 
+const items_get = async () => {
+    try {
+        const res = await axios.get('http://screete.bikretabd.com/admin/item_get_client')
+        return res.data;
+    }
+    catch (err) {
+        console.error("wrong", err);
+    }
+}
+
+
 
 
 
@@ -202,7 +224,9 @@ export {
     searchitmes,
     client_regi,
     client_login,
-    get_user_location
+    get_user_location,
+    slider,
+    items_get
 };
 
 
