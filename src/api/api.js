@@ -1,9 +1,13 @@
 const axios = require('axios').default;
 
 
+const base_url = "http://localhost:4000/admin";
+// const base_url = "http://screete.bikretabd.com/admin";
+
+
 const cat_getdata = async () => {
     try {
-        const res = await axios.get('http://screete.bikretabd.com/admin/cata_get_client')
+        const res = await axios.get(base_url + '/cata_get_client')
         return res.data;
     }
     catch (err) {
@@ -15,7 +19,7 @@ const cat_getdata = async () => {
 
 const subcat_getdata = async () => {
     try {
-        const res = await axios.get('http://screete.bikretabd.com/admin/subcat_getclient')
+        const res = await axios.get(base_url + '/subcat_getclient')
         return res.data;
     }
     catch (err) {
@@ -26,7 +30,7 @@ const subcat_getdata = async () => {
 
 const slider = async () => {
     try {
-        const res = await axios.get('http://screete.bikretabd.com/admin/slider_get_client')
+        const res = await axios.get(base_url + '/slider_get_client')
         return res.data;
     }
     catch (err) {
@@ -45,7 +49,7 @@ const sub_cat_data = async (e) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: e })
         };
-        await fetch('http://screete.bikretabd.com/admin/sub_cata_sub_id_client', requestOptions)
+        await fetch(base_url + '/sub_cata_sub_id_client', requestOptions)
             .then(response => response.json())
             .then((res) => {
                 dx = res;
@@ -68,7 +72,7 @@ const additems_data = async (event) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: event })
         };
-        await fetch('http://screete.bikretabd.com/admin/item_client', itemsdta)
+        await fetch(base_url + '/item_client', itemsdta)
             .then(response => response.json())
             .then((res) => {
                 itemfile = res;
@@ -106,7 +110,7 @@ const single_items = async (event) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: event })
         };
-        await fetch('http://screete.bikretabd.com/admin/signle_item_get_client', itemsdta)
+        await fetch(base_url + '/signle_item_get_client', itemsdta)
             .then(response => response.json())
             .then((res) => {
                 itemfile = res;
@@ -128,7 +132,7 @@ const searchitmes = async (event) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ items_name: event })
         };
-        await fetch('http://screete.bikretabd.com/admin/search_items', itemsdta)
+        await fetch(base_url + '/search_items', itemsdta)
             .then(response => response.json())
             .then((res) => {
                 searchdata = res;
@@ -151,7 +155,7 @@ const client_regi = async (event) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(event)
         };
-        await fetch('http://screete.bikretabd.com/admin/client_regi', clientregis)
+        await fetch(base_url + '/client_regi', clientregis)
             .then(response => response.json())
             .then((res) => {
                 regi_data = res;
@@ -174,7 +178,7 @@ const client_login = async (event) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(event)
         };
-        await fetch('http://screete.bikretabd.com/admin/client_login', clientlog)
+        await fetch(base_url + '/client_login', clientlog)
             .then(response => response.json())
             .then((res) => {
                 log_data = res;
@@ -202,7 +206,7 @@ const get_user_location = async () => {
 
 const items_get = async () => {
     try {
-        const res = await axios.get('http://screete.bikretabd.com/admin/item_get_client')
+        const res = await axios.get(base_url + '/item_get_client')
         return res.data;
     }
     catch (err) {

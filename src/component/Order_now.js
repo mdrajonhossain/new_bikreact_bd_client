@@ -22,7 +22,7 @@ const Order_now = (props) => {
   }, [])
 
 
-  const Orderaction = ()=>{
+  const Orderaction = () => {
     alert("Please Coming Soon Products Order")
   }
 
@@ -38,9 +38,18 @@ const Order_now = (props) => {
           <div className='row'>
 
             <div className='col-md-6'>
-              <button type="button" onClick={()=>Orderaction()}class="add-add-to-checkout">Order</button>
+              <button type="button" onClick={() => Orderaction()} class="add-add-to-checkout">Order</button>
               <br />
-              <br />             
+              <br />
+              <span>Delivery Information : </span>
+              <br />
+              <br />
+              <label class="form-label" for="form3Example3cg">Delivery Address</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label class="mt-2 form-label" for="form3Example3cg">Received Mobile Number</label>
+              <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+              <button type="button" class="mt-2 h3 btn btn-lg"
+                style={{ background: '#006a50', color: 'white' }}>Save</button>
             </div>
 
             <div className='col-md-6'>

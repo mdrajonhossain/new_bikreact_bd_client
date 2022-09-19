@@ -257,10 +257,10 @@ const Header_navber = () => {
               : ''}
           </OutsideClickHandler>
           <div className="web h_menu"><Link to="/">Home</Link></div>
-          <div className="web h_menu"><Link to="/">About</Link></div>
-          <div className="web h_menu"><a href="https://bikretabd.blogspot.com">Blog</a></div>
+          <div className="web h_menu"><Link to="">About</Link></div>
+          <div className="web h_menu"><a href="">Blog</a></div>
 
-          <div className="web h_menu"><Link to="/">Contact</Link></div>
+          <div className="web h_menu"><Link to="">Contact</Link></div>
 
           <div className="right_side_menu">
             <div className="web h_menu" style={{ position: 'relative' }}><Link to="/add-card"> Items <MdOutlineShoppingCart size={22} /> <span className='item_counters'>{localdata}</span> </Link></div>
